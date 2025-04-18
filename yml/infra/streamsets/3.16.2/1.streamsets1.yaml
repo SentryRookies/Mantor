@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamsets1
+  labels:
+    component: streamsets1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     component: streamsets1
+  template:
+    metadata:
+      labels:
+        component: streamsets1
+    spec:
+#      hostAliases:
+#      nodeSelector:
+#        dsaas-streamsets: "true"
+      imagePullSecrets:
+        - name : sumitsiotkey
+      containers:
+      - name: streamsets
+        image: 777205220558.dkr.ecr.ap-northeast-2.amazonaws.com/streamsets:3.16.2-latest
+#        resources:
+#           limits:
+#             cpu: 500m
+#             memory: 2G
+#           requests:
+#             cpu: 200m
+#             memory: 2G
+        env:
+        - name: SDC_FILE_LIMIT
+          value: "0"
+#        - name: SDC_JAVA_OPTS
+#          value: -Xms16000m -Xmx16000m
+        - name: TZ
+          value: Asia/Seoul
+        securityContext:
+          privileged: true
+        volumeMounts:
+          - name: streamsets-data
+            mountPath: /data
+          - name: streamsets-libs
+            mountPath: /opt/streamsets-datacollector-3.16.2/streamsets-libs
+        ports:
+        - containerPort: 18630
+          protocol: "TCP"
+          name: http
+        - containerPort: 30001
+          protocol: "TCP"
+          name: datainput01
+
+      volumes:
+        - name: streamsets-data
+          persistentVolumeClaim:
+            claimName: streamsets-data-pvc
+        - name: streamsets-libs
+          persistentVolumeClaim:
+            claimName: streamsets-libs-pvc

@@ -1,0 +1,10 @@
+O. spark 3.5.1 image build 방법
+   1. 아래 명령을 통해 bitnami source를 가져온다.
+       git clone https://github.com/bitnami/containers.git
+   2. containers/bitnami/spark/3.5/debian-12 폴더의 안의 Dockerfile을 이 폴더의 Dockerfile로 변경한다.
+   3. 아래 명령을 통해 docker image를 생성한다. 
+      docker build --platform linux/amd64 -t sumitsfm.azurecr.io/infra/spark:spark-3.5.1-scala-2.12-java-11 . 
+   4. ACR에 push 한다.
+      az acr login -n sumitsfm
+      docker push sumitsfm.azurecr.io/infra/spark:spark-3.5.1-scala-2.12-java-11
+

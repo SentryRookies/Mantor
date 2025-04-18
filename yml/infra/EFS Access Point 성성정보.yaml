@@ -1,0 +1,198 @@
+# EFS Access Point 성성정보
+streamsets:
+  - name: fsap-streamsets-data
+    root_dir: /streamsets/data
+    posix_user:
+      uid: 20159
+      gid: 20159
+      groups: 0,20159
+    root_auth:
+      uid: 20159
+      gid: 20159
+      auth: 0755
+  - name: fsap-streamsets-libs
+    root_dir: /streamsets/libs
+    posix_user:
+      uid: 20159
+      gid: 20159
+      groups: 0,20159
+    root_auth:
+      uid: 20159
+      gid: 20159
+      auth: 0755
+  
+kafka:
+  - name: fsap-kafka
+    root_dir: /kafka
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+
+redis-master:
+  - name: fsap-redis-master
+    root_dir: /redis-master
+    posix_user:
+      uid: 0
+      gid: 0
+      groups: 0
+    root_auth:
+      uid: 0
+      gid: 0
+      auth: 0755
+
+es-master:
+  - name: fsap-es-master-config
+    root_dir: /es-master/config
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+  - name: fsap-es-master-data
+    root_dir: /es-master/data
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+  - name: fsap-es-master-logs
+    root_dir: /es-master/logs
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+
+es-data1:
+  - name: fsap-es-data1-config
+    root_dir: /es-data1/config
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+  - name: fsap-es-data1-data
+    root_dir: /es-data1/data
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+  - name: fsap-es-data1-logs
+    root_dir: /es-data1/logs
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+
+es-data2:
+  - name: fsap-es-data2-config
+    root_dir: /es-data2/config
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+  - name: fsap-es-data2-data
+    root_dir: /es-data2/data
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+  - name: fsap-es-data2-logs
+    root_dir: /es-data2/logs
+    posix_user:
+      uid: 1000
+      gid: 1000
+      groups: 1000
+    root_auth:
+      uid: 1000
+      gid: 1000
+      auth: 0755
+
+kibana:
+  - name: fsap-kibana-config
+    root_dir: /kibana/config
+    posix_user:
+      uid: 0
+      gid: 0
+      groups: 0
+    root_auth:
+      uid: 0
+      gid: 0
+      auth: 0755
+  - name: fsap-kibana-data
+    root_dir: /kibana/data
+    posix_user:
+      uid: 0
+      gid: 0
+      groups: 0
+    root_auth:
+      uid: 0
+      gid: 0
+      auth: 0755
+
+postgres:
+  - name: fsap-postgres-data
+    root_dir: /postgres/data
+    posix_user:
+      uid: 0
+      gid: 0
+      groups: 0
+    root_auth:
+      uid: 0
+      gid: 0
+      auth: 0755
+
+spark:
+  - name: fsap-spark-data
+    root_dir: /spark/data
+    posix_user:
+      uid: 0
+      gid: 0
+      groups: 0
+    root_auth:
+      uid: 0
+      gid: 0
+      auth: 0755
+  - name: fsap-spark-work-log
+    root_dir: /spark/log
+    posix_user:
+      uid: 0
+      gid: 0
+      groups: 0
+    root_auth:
+      uid: 0
+      gid: 0
+      auth: 0755

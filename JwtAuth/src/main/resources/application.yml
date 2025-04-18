@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sumits.auth.jwt.api
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+redis:
+  host: redis-master-cs
+  port: 6379
+  db: 1
+  use: 0
+
+sumits:
+  encryption:
+    jwk-private: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALVfMfMinOBoTcy+A58AG8iVFp/pa8/n7drRU8qwq7+BcGTPArNEuYgBEscPTKNWnWREb1FzD6yoMOo0q6rC30H0TkT1V+IwSqzXYzq87yhoDlrip8wBdfOkUu4au+qETQHLYa2wcsrbn40Nk0+DxEAM6nIWj6NDKNA3hGSPiO8LAgMBAAECgYA0b3AebbxS+HS9o5Wia0KdC9U9qBs+QTw3zdret5L/y6k1y89pCo5k7oKCQD8U3d6k9VAFiTFX5kw1+cJDnRE0IG5y4yDnIdMO/ZRlxPmSLhOHdPZplXvDUyV4lkuMWqxhiEJVry3KYNVG/kEINMHHqnK/4jBH4E/qnkwVDF6roQJBAMy0ZDr/2D7D64Rc5TlYpL15Qmra15u4ydwEhViBLIiM9gaKryv/7e+/RSCiODzZWxb8nRNRCEGsbf1H9qsY2LECQQDi0gbc2tNOoXTGFRVwI/Z6LNIzwlPNeXzBy+uC7UXL9sqRYHWuRgLdzUlL6bGpLCYKt6kWiVzwp0v4q13SOnJ7AkBWBJt1m1qwDT3jUfHUpiYbpF+/bRRa0Eyqko/CAA3Jl4oud4pib9n4+6O9scz17NP1FdOfcVaJ2j4hx2KkxP0RAkEAkXFrxSLsbHdLkdjjLk1hN2aWQ2pQomlMflhsZEARiYBu1FmuHFn4bJG+dlcb/Qa6PhUW78SVPBuKs6HvP2cLEQJAd4KyL9M7fUVtf94S6R39L1B8xMwPnfhAdKSS0KPP1zrMgq9Fvb12cFPb2YaDqXq+f+wA7ZsvKeynRZWjj0jVEw==
+    jwk-uri: http://localhost:8080/auth/jwks
+
+server:
+  port: 8080

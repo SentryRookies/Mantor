@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: spark-master1
+  name: spark-master1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     name: spark-master1
+  template:
+    metadata:
+      labels:
+        name: spark-master1
+    spec:
+      nodeSelector:
+        dspSparkType: master
+      containers:
+      - name : spark-master1
+        image: 615299753054.dkr.ecr.ap-northeast-2.amazonaws.com/spark:spark-3.5.1-scala-2.12-java-11
+#        resources:
+#          limits:
+#            memory: "16384Mi"
+        env:
+          - name: TZ
+            value: Asia/Seoul
+          - name: SPARK_MODE
+            value: master
+          - name: SPARK_RPC_AUTHENTICATION_ENABLED
+            value: "no"
+          - name: SPARK_RPC_ENCRYPTION_ENABLED
+            value: "no"
+          - name: SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED
+            value: "no"
+          - name: SPARK_SSL_ENABLED
+            value: "no"
+          - name: SPARK_USER
+            value: spark
+        volumeMounts:
+          - name: spark-data
+            mountPath: /data
+          - name: spark-work-log
+            mountPath: /opt/bitnami/spark/work
+        ports:
+        - containerPort: 7077
+          protocol: TCP
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 6066
+          protocol: TCP
+      volumes:
+        - name: spark-data
+          persistentVolumeClaim:
+            claimName: spark-data-pvc
+        - name: spark-work-log
+          persistentVolumeClaim:
+            claimName: spark-work-log-pvc

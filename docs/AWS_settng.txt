@@ -1,0 +1,136 @@
+1. AWS Cli 설치
+   https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html
+
+2. kubectl & eksctl 설치
+   https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/install-kubectl.html
+   https://eksctl.io/installation/
+
+
+
+EKS 구성
+   https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html
+
+1. EKS cluster 생성 : demo-cluster 
+   . eksctl create cluster --name demo-cluster --region ap-northeast-2 --version 1.28 --without-nodegroup
+
+   .kube/config에 context 추가하는 커맨트 : eksctl로 생성한 경우 context가 자동으로 추가됨   
+     - aws eks update-kubeconfig --region ap-northeast-2 --name test-cluster
+
+   . aws cli에서 특정 사용자로 로그인하는 방법
+     1. 먼저 IAM에서 각 계정에서 access key를 생성해야 함(생성하면 cvs 파일로 다운로드 받을 수 있음)
+	 2. aws configure 명령으로 아래 항목들을 설정한다. access key 발급 받으거를 아래와 같이 입력하면 됨
+	    AWS Access Key ID [****************6LW5]: AKIA3J5IKQTHNBXOLGHQ
+        AWS Secret Access Key [****************JEwz]: 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
+        Default region name [us-east-1]:
+        Default output format [json]:
+	
+2. EKS node 생성 : demo-nodegroup
+    0. IAM role 생성 (AmazonEKSNodeRole)
+           - AmazonEKSWorkerNodePolicy
+           - AmazonEC2ContainerRegistryReadOnly
+           - AmazonEKSServicePolicy
+           - AmazonEKS_CNI_Policy
+    1. node group 생성 : demo-nodegroup 
+
+
+*) Rancher 설치
+   1. helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
+   2. kubectl create namespace cattle-system
+   3. helm install rancher rancher-latest/rancher --namespace cattle-system --set replicas=1 --set boo:tstrapPassword=admin --set ingress.tls.source=secret
+   4. Rancher 접속용 LoadBalancer 생성
+      kubectl apply -f 0.rancher_lb.yaml
+      초기 패스워드 확인 법 : kubectl logs -n cattle-system rancher-5b9cc8bf88-9xwpd | grep "Bootstrap Password:"
+      패스워드 변경 admin / rookies1234!
+
+#3. EBS CSI 드라이버 설치
+  . IAM AmazonEKS_EBS_CSI_DriverRole 생성
+    : AmazonEBSCSIDriverPolicy 권한 추가
+    :  신뢰 정책 편집(Edit trust policy)에서 아래 행 추가
+       - "oidc.eks.region-code.amazonaws.com/id/133651AA718EA83A696AFE05A5183311:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+    *) AWS EBS는 ReadWriteOnce 만 가능
+    *) Reclaim : Retain으로 하더라도 pvc를 삭제했다 새로 생성하면 데이터는 날아간다. 따라서 데이터 유지하려면 pvc를 삭제하면 안된다.
+
+#4. EFS CSI 드라이버 설치
+   . IAM AmazonEKS_EFS_CSI_DriverRole 생성
+    : AmazonEFSCSIDriverPolicy 권한 추가
+    :  신뢰 정책 편집(Edit trust policy)에서 아래 행 추가 & StringEquals -> StringLike로 변경
+       - "oidc.eks.ap-northeast-2.amazonaws.com/id/133651AA718EA83A696AFE05A5183311:sub": "system:serviceaccount:kube-system:efs-csi-*"
+
+       *) CSI 드라이버가 설치되지 않은 경우 설치 필요함
+       kubectl get csidrivers
+       helm repo add aws-efs-csi-driver https://kubernetes-sigs.github.io/aws-efs-csi-driver/
+       helm repo update
+       helm upgrade --install aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
+         --namespace kube-system \
+         --set image.repository=602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efs-csi-driver
+       kubectl get pods -n kube-system | grep efs
+
+*) 3. 4. 과정을 생략하고 eksClusterRole, eksWorkerNodeRole에 AmazonEBSCSIDriverPolicy, AmazonEFSCSIDriverPolicy 권한을 추가해도 됨. 
+
+5. ECR(Container Registry) 생성 & 이미지 push : 615299753054.dkr.ecr.ap-northeast-2.amazonaws.com
+	. push 방법
+	  1. aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 777205220558.dkr.ecr.ap-northeast-2.amazonaws.com
+	  2. docker tag {develop/dsp-svc-control:latest} 777205220558.dkr.ecr.ap-northeast-2.amazonaws.com/{develop/dsp-svc-control:latest}
+	  3. docker push 615299753054.dkr.ecr.ap-northeast-2.amazonaws.com/{develop/dsp-svc-control:latest}
+    *) 주의 : repository를 미리 만들어 둬야 이미지 push가 가능함  "develop/dsp-svc-control"
+
+6. EFS 생성: NFS로 붙일 경우 각각 별도로 만들어야 함
+   - efs-dev-es-master-config-001 
+     efs-dev-es-master-data-001
+     efs-dev-es-master-logs-001
+     efs-dev-redis-data-001     
+   * 생성된 EFS의 네트워크 > 관리에서 eks cluster의 보안그룹을 추가해준다.
+   * EKS에 addon Amazon EFS CSI 드라이버 설치
+   * EFS에 access point 설정 필요 : EFS Acces Point 생성정보.yaml 참조 
+
+7. PersistentVolumeClaim 생성
+   1. kubectl apply -f 0.storageClass.yaml
+   2. kubectl apply -f 1.createpv.yaml
+
+8. node lable 작업
+    kubectl label nodes ip-192-168-122-112.ap-northeast-2.compute.internal dspESType=master
+    kubectl label nodes ip-192-168-122-112.ap-northeast-2.compute.internal dspSparkType=master
+
+    kubectl label nodes ip-192-168-50-40.ap-northeast-2.compute.internal dspESType=data1
+    kubectl label nodes ip-192-168-50-40.ap-northeast-2.compute.internal dspSparkType=worker
+
+    kubectl label nodes ip-192-168-84-71.ap-northeast-2.compute.internal dspESType=data2
+    kubectl label nodes ip-192-168-84-71.ap-northeast-2.compute.internal dspSparkType=worker
+    kubectl label nodes ip-192-168-84-71.ap-northeast-2.compute.internal dspDBType=postgre
+
+9. ES, HQ, Kibana, zookeeper, kafka, redis, streamsets, postgreSQL, Spark 설치
+
+
+10. ALB(AWS-LoadBalancer)를 사용한 ingress구현
+    : 아래 URL 참조(아직 못 해봄)
+      https://metaverse-cloud.tistory.com/257
+      https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
+
+     0. aws eks describe-cluster --name demo-cluster --query "cluster.identity.oidc.issuer" --output text
+     1. eksctl utils associate-iam-oidc-provider --region ap-northeast-2 --cluster demo-cluster --approve
+     2. curl -o iam_policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.3.1/docs/install/iam_policy.json
+     3. aws iam create-policy \
+        --policy-name AWSLoadBalancerControllerIAMPolicy \
+        --policy-document file://iam_policy.json
+     4. eksctl create iamserviceaccount \
+            --cluster=demo-cluster \
+            --namespace=kube-system \
+            --name=aws-load-balancer-controller \
+            --attach-policy-arn=arn:aws:iam::777205220558:policy/AWSLoadBalancerControllerIAMPolicy \
+            --override-existing-serviceaccounts \
+            --region ap-northeast-2 \
+            --approve
+     5. helm repo add eks https://aws.github.io/eks-charts
+        helm repo update
+     6. helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+        -n kube-system \
+        --set clusterName=demo-cluster \
+        --set serviceAccount.create=false \
+        --set serviceAccount.name=aws-load-balancer-controller
+
+      7. kubectl get deployment -n kube-system aws-load-balancer-controller
+
+
+11. EKS cluster 삭제
+    . eksctl delete cluster --region=ap-northeast-2 --name=demo-cluster
+

@@ -1,0 +1,39 @@
+1. configMap 설명 & 시연
+2. EFS 설명 & 시연
+   0. EFS 생성
+   1. EFS Access Point 생성
+   2. EFS Access Point mount test : pvc/pv로 pod에 mount
+3. ALB를 Ingress Controller로 사용하는 방법 : ClusterIP, NodePort, LoadBalancer, Ingress 차이.
+   Ingress Controller를 ALB로 설정하는 방법 & Ingress 설명 & 시연
+4. InfraSW 설치
+   1. zookeeper > kafka
+   2. streamsets (*pvc에 파일 copy 필요)
+   3. redis
+   4. elasticsearch > kibana > es-hq  (*pvc에 파일 copy 필요)
+   5. postgresql
+   *6. spark
+5. Infra S/W 기본 동작 방식 & 사용법(커맨드) 설명
+  - ElasticSearch/Kibana, Kafka/Zookeeper/KafkaManager, Redis, StreamSets, PostgreSQL 기본 동작 방식 및 사용법
+6. Kafka producer sample 프로그램 작성(Spring boot 사용) & 배포 & 시연
+
+
+O. Zookeeper
+   https://xangmin.tistory.com/169
+
+O. Kafka
+   https://velog.io/@holicme7/Apache-Kafka-%EC%B9%B4%ED%94%84%EC%B9%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80
+   https://ifuwanna.tistory.com/487
+
+O. StreamSets
+   https://www.ibm.com/docs/en/streamsets-legacy-dc/5.6.x?topic=guide-getting-started
+
+O. ElasticSearch
+   https://victorydntmd.tistory.com/308
+   https://velog.io/@msjeong97/Elasticsearch%EB%9E%80
+   https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+   https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
+
+O. ClusterIP, NodePort, LoadBalancer, Ingress
+   https://sharplee7.tistory.com/90
+   https://sunrise-min.tistory.com/entry/Kubernetes-NodePort-vs-LoadBalancer-vs-Ingress
+

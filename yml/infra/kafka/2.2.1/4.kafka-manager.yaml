@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-manager
+  template:
+    metadata:
+      labels:
+        app: kafka-manager
+    spec:
+      containers:
+      - name: kafka-manager
+        image: 777205220558.dkr.ecr.ap-northeast-2.amazonaws.com/kafka-manager:v2
+        ports:
+        - containerPort: 80
+        env:
+        - name: ZK_HOSTS
+          value: zk-svc:2181 
+        command:
+        - ./bin/kafka-manager
+        - -Dhttp.port=80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-manager-svc
+spec:
+  selector:
+    app: kafka-manager
+  ports:
+  - name: port-12004
+    protocol: TCP
+    port: 12004
+    targetPort: 80 
+  type: LoadBalancer
+

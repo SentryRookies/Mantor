@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:   
+  name: spark-worker
+  labels:   
+    name: spark-worker
+spec:       
+  replicas: 2 
+  selector: 
+    matchLabels:
+     name: spark-worker
+  template:
+    metadata:
+      labels:
+        name: spark-worker
+    spec:    
+      nodeSelector:
+        dspSparkType: worker
+      containers:
+      - name: spark-worker
+        image: 615299753054.dkr.ecr.ap-northeast-2.amazonaws.com/spark:spark-3.5.1-scala-2.12-java-11
+        env:
+          - name: TZ
+            value: Asia/Seoul
+          - name: SPARK_MODE
+            value: worker
+          - name: SPARK_MASTER_URL
+            value: spark://spark-master1-svc:7077
+#          - name: SPARK_WORKER_MEMORY
+#            value: "4G"
+#          - name: SPARK_WORKER_CORES
+#            value: "4"
+          - name: SPARK_RPC_AUTHENTICATION_ENABLED
+            value: "no"
+          - name: SPARK_RPC_ENCRYPTION_ENABLED
+            value: "no"
+          - name: SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED
+            value: "no"
+          - name: SPARK_SSL_ENABLED
+            value: "no"
+          - name: SPARK_USER
+            value: spark
+        ports:
+        - containerPort: 4040
+          protocol: TCP
+        volumeMounts:
+          - name: spark-data
+            mountPath: /data
+          - name: spark-work-log
+            mountPath: /opt/bitnami/spark/work
+
+        resources:
+          requests:
+#            memory: "12Gi"
+#            cpu: "10000m"
+          limits:
+#            memory: "12Gi"
+#            cpu: "10000m"
+      volumes:
+      - name: spark-data
+        persistentVolumeClaim:
+          claimName: spark-data-pvc
+      - name: spark-work-log
+        persistentVolumeClaim:
+          claimName: spark-work-log-pvc

@@ -1,0 +1,8 @@
+kubectl exec -it postgresql-glfr8 -- mkdirr /var/lib/postgresql/data ;sleep 5;
+kubectl exec -it postgresql-glfr8 -- mkdir /var/lib/postgresql/data/ts_temp ;sleep 5;
+kubectl exec -it postgresql-glfr8 -- chown -R postgres:postgres /var/lib/postgresql/data/ ;sleep 5;
+kubectl cp init.sql postgresql-glfr8:/
+kubectl exec -it postgresql-glfr8 -- psql -U postgres -f "/init.sql" ;sleep 15;\
+kubectl exec -it postgresql-glfr8 -- psql -U postgres -c "DROP SCHEMA secuiot" ;sleep 5;\
+kubectl exec -it postgresql-glfr8 -- sh -c "export PGPASSWORD=secuiot1q2w" ;sleep 5;\
+kubectl exec -it postgresql-glfr8 -- psql secuiot -U secuiot -c "CREATE SCHEMA secuiot AUTHORIZATION secuiot"

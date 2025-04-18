@@ -1,0 +1,29 @@
+cluster.name: myesdb
+
+node.master: true
+node.name: ${HOSTNAME}
+node.data: true
+node.ingest: false
+
+processors: 9
+network.host: 0.0.0.0
+
+path.data: /data/
+path.logs: /logs/
+
+bootstrap.memory_lock: false
+http.compression: true
+node.attr.box_type: hot
+
+#add 2020.0205
+indices.breaker.total.limit: 95%
+indices.breaker.fielddata.limit: 85%
+indices.fielddata.cache.size: 70%
+
+#discovery.type: single-node
+cluster.initial_master_nodes: ${HOSTNAME}
+discovery.seed_hosts: ${HOSTNAME}
+
+cluster.routing.allocation.same_shard.host: true
+indices.recovery.max_bytes_per_sec: 300mb
+

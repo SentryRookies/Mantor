@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: postgresql
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgresql
+    spec:
+      containers:
+      - name: postgresql
+        image: 777205220558.dkr.ecr.ap-northeast-2.amazonaws.com/postgres:10.13-alpine
+        env:
+          - name: POSTGRES_USER
+            value: postgres
+          - name: POSTGRES_PASSWORD
+            value: "example"
+          - name: POSTGRES_DB
+            value: postgres
+          - name: PGDATA
+            value: /var/lib/postgresql/data
+          - name: TZ
+            value: Asia/Seoul
+        ports:
+          - containerPort: 5432
+        volumeMounts:
+          - name: postgres
+            mountPath: /var/lib/postgresql/data
+#          - name: timezone
+#            mountPath: /etc/localtime
+#            readOnly: true
+      volumes:
+        - name: postgres
+          persistentVolumeClaim:
+            claimName: postgre-data-pvc
+#        - hostPath:
+#            path: /etc/localtime
+#          name: timezone
+      nodeSelector:
+        dspDBType : "postgre"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: postgres
+  name: postgres-cs
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+      protocol: TCP
+      name: pgql
+  selector:
+    app: postgresql
+  type: ClusterIP
+

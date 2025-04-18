@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo1
+  template:
+    metadata:
+      labels:
+        app: demo1
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+      - name: demo1
+        image: 777205220558.dkr.ecr.ap-northeast-2.amazonaws.com/demo1:1.0.3
+        command: ["java"]
+#        args: ["-Dspring.profiles.active=dev","-jar","/demo1.jar"]
+        args: ["-Dspring.profiles.active=dev","-Dspring.config.location=/classes/application.yml","-jar","/demo1.jar"]
+        ports:
+          - containerPort: 8080
+            name: http
+        readinessProbe:
+          httpGet:
+            path: /swagger-ui/index.html
+            port: 8080
+          periodSeconds: 30
+          timeoutSeconds: 30
+        volumeMounts:
+        - name: config
+          mountPath: /classes/application.yml
+          subPath: application.yml
+        - name: kibana-config
+          mountPath: /usr/share/kibana/config
+      volumes:
+        - name: config
+          configMap:
+            name: demo1-config
+            items:
+              - key: "application.yml"
+                path: "application.yml"
+        - name: kibana-config
+          persistentVolumeClaim:
+            claimName: kibana-config-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo1-cs
+  labels:
+    app: demo1
+    service: demo1
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: demo1
+  type: ClusterIP

@@ -1,0 +1,20 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: demo1-config
+data:
+  application.yml: |-
+    spring:
+      application:
+        name: demo1 
+      profiles:
+        #active: local  # profiles loc
+        active: dev  # profiles dev
+      kafka:
+        bootstrap-servers: kafka-svc:9093
+        template:
+          default-topic: base-event
+        consumer:
+          group-id: demo1-group        
+    data:
+      test: configMap Setting

@@ -1,0 +1,3 @@
+rootProject.name = 'Mantor'
+include 'JwtAuth'
+include 'demo1'

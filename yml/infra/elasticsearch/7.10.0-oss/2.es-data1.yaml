@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch-data1
+  labels:
+    component: elasticsearch-data1
+    role: data
+spec:
+  selector:
+    matchLabels:
+      component: elasticsearch-data1
+      role: data
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: elasticsearch-data1
+        role: data
+    spec:
+      initContainers:
+      - name: init-sysctl
+        image: docker.io/busybox:1.27.2
+        command: ["sysctl", "-w", "vm.max_map_count=262144"]
+        securityContext:
+          privileged: true
+      containers:
+      - name: elasticsearch-data1
+        securityContext:
+          privileged: true
+        image: 777205220558.dkr.ecr.ap-northeast-2.amazonaws.com/elasticsearch:7.10.0-nori
+#        resources:
+#          limits:
+#            memory: "20Gi"
+        ports:
+        - containerPort: 9300
+          name: transport
+        - containerPort: 9200
+          name: masterport
+        livenessProbe:
+          tcpSocket:
+            port: transport
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        volumeMounts:
+        - name: es-data-config
+          mountPath: /etc/elasticsearch/config
+        - name: es-data-data
+          mountPath: /data
+        - name: es-data-logs
+          mountPath: /logs
+#        - name: timezone
+#          mountPath: /etc/localtime
+#          readOnly: true
+      volumes:
+      - name: es-data-config
+        persistentVolumeClaim:
+          claimName: es-data1-config-pvc
+      - name: es-data-data
+        persistentVolumeClaim:
+          claimName: es-data1-data-pvc
+      - name: es-data-logs
+        persistentVolumeClaim:
+          claimName: es-data1-logs-pvc
+#      - name: timezone
+#        hostPath:
+#          path: /etc/localtime
+      nodeSelector:
+        dspESType: "data1"

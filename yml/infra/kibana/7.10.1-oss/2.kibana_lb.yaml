@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana-lb
+  labels:
+    component: kibana
+spec:
+  selector:
+    component: kibana
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 5601
+    name: kibana-80
+  type: LoadBalancer

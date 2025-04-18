@@ -1,0 +1,13 @@
+1. github Actions를 사용한 CI/CD 자동화
+2. StreamSets 설명
+   - DB에서 읽어서 Redis에 설정
+   - Redis에서 읽어서 Enrichment 수행
+   - 정규화후 ElasticSearch에 저장 => Elasticsearch template 설정
+   * API 호출해서 데이터 가져와서 Parsing 후 ElasticSearch에 저장
+3. ElasticSearch 설명
+   - template 설정 & data 저장
+   - 간단한 검색
+4. 목표 시스템 구성도
+   -
+5. Redmine에 Version 등록
+   - Feature, Task 등록

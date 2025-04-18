@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: demo1
+  kafka:
+    bootstrap-servers: kafka-svc:9093
+    template:
+      default-topic: base-event
+    consumer:
+      group-id: demo1-group
+data:
+  test: 김상진
+
