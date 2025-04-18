@@ -48,7 +48,7 @@ jobs:
           IMAGE_TAG: ${{ github.run_number }}
         run: |
           gradle bootJar
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG JwtAuth
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG demo1
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Update kubeconfig
