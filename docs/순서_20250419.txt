@@ -8,6 +8,39 @@
    - template 설정 & data 저장
    - 간단한 검색
 4. 목표 시스템 구성도
-   -
 5. Redmine에 Version 등록
    - Feature, Task 등록
+
+
+정규화)
+1. Event Normalization(정규화) 설명
+  - Event Field 정의 : DSaaS-Fields-변경관리용-v2.8.xlsx
+  - 수집데이터 분석 & 인터페이스 설계서 & Event Field Mapping :  SightCube_Field정의_20241016.xlsx, ACS_SightCube_인터페이스설계서_v1.5_210125.doc
+    syslog(https://gogoyeon.com/syslog-format-%ED%8F%AC%EB%A7%B7%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4/ ,
+          https://help.eset.com/protect_cloud/ko-KR/admin_server_settings_export_to_syslog.html),
+    CEF(https://ko.logpresso.com/ko/blog/2017-03-25-cef-log-format), json ... 다양한 log 샘플 : Log샘플.txt
+    FortiGate Log Message : https://docs.fortinet.com/document/fortigate/7.6.0/fortios-log-message-reference/357866/log-message-fields
+  * 정규식 공부필요 : https://coding-factory.tistory.com/819
+2. Event Enrichment
+  - Asset DB 정의 : asset_db.jpg 참조
+  - GeoIP : Maxmind (https://dev.maxmind.com/geoip/docs/databases/city-and-country/#csv-databases)
+    : geoip 폴터내에 sample csv파일 참조
+3. Streamsets를 이용한 정규화 시연
+
+참고)
+- Kafka
+    https://www.ibm.com/kr-ko/topics/apache-kafka
+    https://velog.io/@holicme7/Apache-Kafka-%EC%B9%B4%ED%94%84%EC%B9%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80
+- ElasticSearch
+    https://velog.io/@yeji/%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-%EC%8B%A4%EB%AC%B4-%EA%B0%80%EC%9D%B4%EB%93%9C-Chap09-%EC%A0%95%EB%A6%AC-Elastic-Search%EC%99%80-Lucene-%EC%9D%B4%EC%95%BC%EA%B8%B0
+    https://www.elastic.co/kr/blog/what-is-an-elasticsearch-index
+    https://medium.com/@digle117/elasticsearch%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-apache-lucene%EC%9D%98-%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%EA%B0%9C%EB%85%90-22134906c96d
+- Redis
+    https://velog.io/@wnguswn7/Redis%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C-Redis%EC%9D%98-%ED%8A%B9%EC%A7%95%EA%B3%BC-%EC%82%AC%EC%9A%A9-%EC%8B%9C-%EC%A3%BC%EC%9D%98%EC%A0%90
+- Spark
+    https://magpienote.tistory.com/189
+    https://www.ibm.com/kr-ko/topics/apache-spark
+    https://sparkbyexamples.com/
+- Streamsets
+    https://kkimsangheon.github.io/2020/01/07/streamsets4/
+    https://docs.streamsets.com/portal/platform-datacollector/latest/index.html
