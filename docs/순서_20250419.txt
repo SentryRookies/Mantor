@@ -1,15 +1,22 @@
-1. github Actions를 사용한 CI/CD 자동화
+1. github Actions를 사용한 CI/CD 자동화 설정 & 시연
 2. StreamSets 설명
    - DB에서 읽어서 Redis에 설정
    - Redis에서 읽어서 Enrichment 수행
    - 정규화후 ElasticSearch에 저장 => Elasticsearch template 설정
-   * API 호출해서 데이터 가져와서 Parsing 후 ElasticSearch에 저장
+     : API 호출해서 데이터 가져와서 Parsing 후 ElasticSearch에 저장
+   - 정규화를 위한 field 정의, field mapping table 작성 => ES template 작성까지의 과정 설명
 3. ElasticSearch 설명
    - template 설정 & data 저장
-   - 간단한 검색
+   - kibana를 통한 간단한 검색 & dashboard 시각화 시견
 4. 목표 시스템 구성도
-5. Redmine에 Version 등록
-   - Feature, Task 등록
+   - 목표 시스템 구성 검토 & 수정
+   - 데이터 흐름도 작성 요청
+   - 개발프로세스 정의
+     : Redmine을 통해 verion별 sprint 관리
+     : Redmine Task 번호로 main branch에서 branch를 생성해서 개인 작업후 commit => 매주 목요일 main branch에 merge 후 통합검증
+       => 개발 결과 검증 후 다음 버전에서 작업할 내용 정리 후
+5. Redmine에 Version 등록 & 차주까지(4/26) 작업할 내용 등록
+   - Feature, Task 등록 & 작업자 지정
 
 
 정규화)
