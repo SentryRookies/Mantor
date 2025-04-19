@@ -88,15 +88,15 @@ EKS 구성
    2. kubectl apply -f 1.createpv.yaml
 
 8. node lable 작업
-    kubectl label nodes ip-192-168-122-112.ap-northeast-2.compute.internal dspESType=master
-    kubectl label nodes ip-192-168-122-112.ap-northeast-2.compute.internal dspSparkType=master
+    kubectl label nodes ip-192-168-102-60.ap-northeast-2.compute.internal dspESType=master
+    kubectl label nodes ip-192-168-102-60.ap-northeast-2.compute.internal dspSparkType=master
 
-    kubectl label nodes ip-192-168-50-40.ap-northeast-2.compute.internal dspESType=data1
-    kubectl label nodes ip-192-168-50-40.ap-northeast-2.compute.internal dspSparkType=worker
+    kubectl label nodes ip-192-168-112-99.ap-northeast-2.compute.internal dspESType=data1
+    kubectl label nodes ip-192-168-112-99.ap-northeast-2.compute.internal dspSparkType=worker
 
-    kubectl label nodes ip-192-168-84-71.ap-northeast-2.compute.internal dspESType=data2
-    kubectl label nodes ip-192-168-84-71.ap-northeast-2.compute.internal dspSparkType=worker
-    kubectl label nodes ip-192-168-84-71.ap-northeast-2.compute.internal dspDBType=postgre
+    kubectl label nodes ip-192-168-133-27.ap-northeast-2.compute.internal dspESType=data2
+    kubectl label nodes ip-192-168-133-27.ap-northeast-2.compute.internal dspSparkType=worker
+    kubectl label nodes ip-192-168-133-27.ap-northeast-2.compute.internal dspDBType=postgre
 
 9. ES, HQ, Kibana, zookeeper, kafka, redis, streamsets, postgreSQL, Spark 설치
 

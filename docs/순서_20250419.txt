@@ -1,9 +1,13 @@
 1. github Actions를 사용한 CI/CD 자동화
+   : 시연
+   : redmine에 등록된 task 번호로 main branch에서 branch 생성해서 개개인이 작업을 해서 push하고 최종 main branch에 merge
+
 2. StreamSets 설명
    - DB에서 읽어서 Redis에 설정
    - Redis에서 읽어서 Enrichment 수행
    - 정규화후 ElasticSearch에 저장 => Elasticsearch template 설정
    * API 호출해서 데이터 가져와서 Parsing 후 ElasticSearch에 저장
+
 3. ElasticSearch 설명
    - template 설정 & data 저장
    - 간단한 검색
