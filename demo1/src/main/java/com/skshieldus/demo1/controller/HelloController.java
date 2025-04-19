@@ -18,7 +18,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello, " + test + "!";
+        return "Test, " + test + "!";
     }
 
     @PostMapping("/kafkasend")
