@@ -19,8 +19,8 @@ EKS 구성
    . aws cli에서 특정 사용자로 로그인하는 방법
      1. 먼저 IAM에서 각 계정에서 access key를 생성해야 함(생성하면 cvs 파일로 다운로드 받을 수 있음)
 	 2. aws configure 명령으로 아래 항목들을 설정한다. access key 발급 받으거를 아래와 같이 입력하면 됨
-	    AWS Access Key ID [****************6LW5]: AKIA3J5IKQTHNBXOLGHQ
-        AWS Secret Access Key [****************JEwz]: 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
+	    AWS Access Key ID [****************6LW5]: 
+        AWS Secret Access Key [****************JEwz]: 
         Default region name [us-east-1]:
         Default output format [json]:
 	
