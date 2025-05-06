@@ -1,4 +1,6 @@
-1. github Actions를 사용한 CI/CD 자동화 설정 & 시연
+1. github Actions를 사용한 CI/CD 자동화
+   : 시연
+   : redmine에 등록된 task 번호로 main branch에서 branch 생성해서 개개인이 작업을 해서 push하고 최종 main branch에 merge
 2. StreamSets 설명
    - DB에서 읽어서 Redis에 설정
    - Redis에서 읽어서 Enrichment 수행

@@ -1,0 +1,2788 @@
+{
+  "pipelineConfig" : {
+    "schemaVersion" : 6,
+    "version" : 18,
+    "pipelineId" : "2KafkaFbb26a979-9c2f-4ea8-bb32-f3220d4b9606",
+    "title" : "FW_Juniper_20211026",
+    "description" : "",
+    "uuid" : "98e5a376-6e54-4eb5-a9e5-d6a4c0ab22e4",
+    "configuration" : [ {
+      "name" : "executionMode",
+      "value" : "STANDALONE"
+    }, {
+      "name" : "deliveryGuarantee",
+      "value" : "AT_LEAST_ONCE"
+    }, {
+      "name" : "shouldRetry",
+      "value" : true
+    }, {
+      "name" : "retryAttempts",
+      "value" : -1
+    }, {
+      "name" : "notifyOnStates",
+      "value" : [ "RUN_ERROR", "STOPPED", "FINISHED" ]
+    }, {
+      "name" : "emailIDs",
+      "value" : [ ]
+    }, {
+      "name" : "constants",
+      "value" : [ ]
+    }, {
+      "name" : "errorRecordPolicy",
+      "value" : "ORIGINAL_RECORD"
+    }, {
+      "name" : "workerCount",
+      "value" : 0
+    }, {
+      "name" : "clusterSlaveMemory",
+      "value" : 2048
+    }, {
+      "name" : "clusterSlaveJavaOpts",
+      "value" : "-XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Dlog4j.debug"
+    }, {
+      "name" : "clusterLauncherEnv",
+      "value" : [ ]
+    }, {
+      "name" : "mesosDispatcherURL",
+      "value" : null
+    }, {
+      "name" : "hdfsS3ConfDir",
+      "value" : null
+    }, {
+      "name" : "rateLimit",
+      "value" : 0
+    }, {
+      "name" : "maxRunners",
+      "value" : 0
+    }, {
+      "name" : "shouldCreateFailureSnapshot",
+      "value" : true
+    }, {
+      "name" : "webhookConfigs",
+      "value" : [ ]
+    }, {
+      "name" : "sparkConfigs",
+      "value" : [ ]
+    }, {
+      "name" : "edgeHttpUrl",
+      "value" : "http://localhost:18633"
+    }, {
+      "name" : "logLevel",
+      "value" : "INFO"
+    }, {
+      "name" : "amazonEMRConfig.userRegion",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.userRegionCustom",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.s3StagingUri",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.clusterPrefix",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.clusterId",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.terminateCluster",
+      "value" : false
+    }, {
+      "name" : "amazonEMRConfig.enableEMRDebugging",
+      "value" : true
+    }, {
+      "name" : "amazonEMRConfig.s3LogUri",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.serviceRole",
+      "value" : "EMR_DefaultRole"
+    }, {
+      "name" : "amazonEMRConfig.jobFlowRole",
+      "value" : "EMR_EC2_DefaultRole"
+    }, {
+      "name" : "amazonEMRConfig.visibleToAllUsers",
+      "value" : true
+    }, {
+      "name" : "amazonEMRConfig.loggingEnabled",
+      "value" : true
+    }, {
+      "name" : "amazonEMRConfig.ec2SubnetId",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.masterSecurityGroup",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.slaveSecurityGroup",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.instanceCount",
+      "value" : 2
+    }, {
+      "name" : "amazonEMRConfig.masterInstanceType",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.slaveInstanceType",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.masterInstanceTypeCustom",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.slaveInstanceTypeCustom",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.accessKey",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.secretKey",
+      "value" : null
+    }, {
+      "name" : "amazonEMRConfig.provisionNewCluster",
+      "value" : false
+    }, {
+      "name" : "runnerIdleTIme",
+      "value" : 60
+    }, {
+      "name" : "clusterConfig.clusterType",
+      "value" : "LOCAL"
+    }, {
+      "name" : "clusterConfig.sparkMasterUrl",
+      "value" : "local[*]"
+    }, {
+      "name" : "clusterConfig.deployMode",
+      "value" : "CLIENT"
+    }, {
+      "name" : "clusterConfig.hadoopUserName",
+      "value" : "hdfs"
+    }, {
+      "name" : "clusterConfig.stagingDir",
+      "value" : "/streamsets"
+    }, {
+      "name" : "databricksConfig.baseUrl",
+      "value" : null
+    }, {
+      "name" : "databricksConfig.credentialType",
+      "value" : null
+    }, {
+      "name" : "databricksConfig.username",
+      "value" : null
+    }, {
+      "name" : "databricksConfig.password",
+      "value" : null
+    }, {
+      "name" : "databricksConfig.token",
+      "value" : null
+    }, {
+      "name" : "databricksConfig.clusterConfig",
+      "value" : "{\n    \"num_workers\": 8,\n    \"spark_version\": \"5.3.x-scala2.11\",\n    \"node_type_id\": \"i3.xlarge\"\n}"
+    }, {
+      "name" : "livyConfig.baseUrl",
+      "value" : null
+    }, {
+      "name" : "livyConfig.username",
+      "value" : null
+    }, {
+      "name" : "livyConfig.password",
+      "value" : null
+    }, {
+      "name" : "databricksConfig.provisionNewCluster",
+      "value" : true
+    }, {
+      "name" : "databricksConfig.clusterId",
+      "value" : null
+    }, {
+      "name" : "databricksConfig.terminateCluster",
+      "value" : false
+    }, {
+      "name" : "ludicrousMode",
+      "value" : false
+    }, {
+      "name" : "ludicrousModeInputCount",
+      "value" : false
+    }, {
+      "name" : "advancedErrorHandling",
+      "value" : false
+    }, {
+      "name" : "triggerInterval",
+      "value" : 2000
+    }, {
+      "name" : "preprocessScript",
+      "value" : ""
+    }, {
+      "name" : "transformerEMRConfig.userRegion",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.userRegionCustom",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.s3StagingUri",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.clusterPrefix",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.clusterId",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.terminateCluster",
+      "value" : false
+    }, {
+      "name" : "transformerEMRConfig.s3LogUri",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.serviceRole",
+      "value" : "EMR_DefaultRole"
+    }, {
+      "name" : "transformerEMRConfig.jobFlowRole",
+      "value" : "EMR_EC2_DefaultRole"
+    }, {
+      "name" : "transformerEMRConfig.visibleToAllUsers",
+      "value" : true
+    }, {
+      "name" : "transformerEMRConfig.loggingEnabled",
+      "value" : true
+    }, {
+      "name" : "transformerEMRConfig.ec2SubnetId",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.masterSecurityGroup",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.slaveSecurityGroup",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.instanceCount",
+      "value" : 2
+    }, {
+      "name" : "transformerEMRConfig.masterInstanceType",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.slaveInstanceType",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.masterInstanceTypeCustom",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.slaveInstanceTypeCustom",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.accessKey",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.secretKey",
+      "value" : null
+    }, {
+      "name" : "transformerEMRConfig.provisionNewCluster",
+      "value" : false
+    }, {
+      "name" : "transformerEMRConfig.useIAMRoles",
+      "value" : false
+    }, {
+      "name" : "clusterConfig.callbackUrl",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.region",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.customRegion",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.gcsStagingUri",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.create",
+      "value" : false
+    }, {
+      "name" : "googleCloudConfig.clusterPrefix",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.version",
+      "value" : "1.4-ubuntu18"
+    }, {
+      "name" : "googleCloudConfig.masterType",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.workerType",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.networkType",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.network",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.subnet",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.tags",
+      "value" : [ ]
+    }, {
+      "name" : "googleCloudConfig.workerCount",
+      "value" : 2
+    }, {
+      "name" : "googleCloudConfig.clusterName",
+      "value" : null
+    }, {
+      "name" : "googleCloudConfig.terminate",
+      "value" : false
+    }, {
+      "name" : "googleCloudCredentialsConfig.projectId",
+      "value" : null
+    }, {
+      "name" : "googleCloudCredentialsConfig.credentialsProvider",
+      "value" : null
+    }, {
+      "name" : "googleCloudCredentialsConfig.path",
+      "value" : null
+    }, {
+      "name" : "googleCloudCredentialsConfig.credentialsFileContent",
+      "value" : null
+    }, {
+      "name" : "badRecordsHandling",
+      "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
+    }, {
+      "name" : "statsAggregatorStage",
+      "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_StatsNullDTarget::1"
+    }, {
+      "name" : "startEventStage",
+      "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
+    }, {
+      "name" : "stopEventStage",
+      "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
+    }, {
+      "name" : "testOriginStage",
+      "value" : "streamsets-datacollector-dev-lib::com_streamsets_pipeline_stage_devtest_rawdata_RawDataDSource::3"
+    }, {
+      "name" : "clusterConfig.sparkAppName",
+      "value" : "${pipeline:title()}"
+    }, {
+      "name" : "clusterConfig.useYarnKerberosKeytab",
+      "value" : false
+    }, {
+      "name" : "clusterConfig.yarnKerberosKeytabSource",
+      "value" : "PROPERTIES_FILE"
+    }, {
+      "name" : "clusterConfig.yarnKerberosKeytab",
+      "value" : null
+    }, {
+      "name" : "clusterConfig.yarnKerberosPrincipal",
+      "value" : "name@DOMAIN"
+    }, {
+      "name" : "transformerEMRConfig.emrVersion",
+      "value" : null
+    } ],
+    "uiInfo" : {
+      "previewConfig" : {
+        "previewSource" : "CONFIGURED_SOURCE",
+        "batchSize" : 10,
+        "timeout" : 10000,
+        "writeToDestinations" : false,
+        "executeLifecycleEvents" : false,
+        "showHeader" : true,
+        "showFieldType" : true,
+        "rememberMe" : false
+      }
+    },
+    "fragments" : [ ],
+    "stages" : [ {
+      "instanceName" : "UDPSource_01",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_origin_udp_UDPDSource",
+      "stageVersion" : "4",
+      "configuration" : [ {
+        "name" : "conf.ports",
+        "value" : [ "30002" ]
+      }, {
+        "name" : "conf.enableEpoll",
+        "value" : false
+      }, {
+        "name" : "conf.numThreads",
+        "value" : 1
+      }, {
+        "name" : "conf.dataFormat",
+        "value" : "SYSLOG"
+      }, {
+        "name" : "conf.batchSize",
+        "value" : 1000
+      }, {
+        "name" : "conf.maxWaitTime",
+        "value" : 1000
+      }, {
+        "name" : "conf.syslogCharset",
+        "value" : "UTF-8"
+      }, {
+        "name" : "conf.typesDbPath",
+        "value" : null
+      }, {
+        "name" : "conf.convertTime",
+        "value" : false
+      }, {
+        "name" : "conf.excludeInterval",
+        "value" : true
+      }, {
+        "name" : "conf.authFilePath",
+        "value" : null
+      }, {
+        "name" : "conf.collectdCharset",
+        "value" : "UTF-8"
+      }, {
+        "name" : "conf.netflowOutputValuesMode",
+        "value" : "RAW_AND_INTERPRETED"
+      }, {
+        "name" : "conf.maxTemplateCacheSize",
+        "value" : -1
+      }, {
+        "name" : "conf.templateCacheTimeoutMs",
+        "value" : -1
+      }, {
+        "name" : "conf.rawDataMode",
+        "value" : "CHARACTER"
+      }, {
+        "name" : "conf.rawDataCharset",
+        "value" : "UTF-8"
+      }, {
+        "name" : "conf.rawDataOutputField",
+        "value" : "/data"
+      }, {
+        "name" : "conf.rawDataMultipleValuesBehavior",
+        "value" : "FIRST_ONLY"
+      }, {
+        "name" : "conf.rawDataSeparatorBytes",
+        "value" : "\\u000A"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      } ],
+      "uiInfo" : {
+        "yPos" : 60.070838928222656,
+        "stageType" : "SOURCE",
+        "icon" : "udp.png",
+        "description" : "",
+        "label" : "UDP-30002",
+        "xPos" : -925.1931087970734
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ "UDPSource_01OutputLane17297562868970" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "StreamSelector_05",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_selector_SelectorDProcessor",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "lanePredicates",
+        "value" : [ {
+          "outputLane" : "StreamSelector_05OutputLane1729756344562",
+          "predicate" : "${str:trim(record:value('/data'))==''}"
+        }, {
+          "outputLane" : "StreamSelector_05OutputLane1729756328937",
+          "predicate" : "default"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "yPos" : 60.070838928222656,
+        "stageType" : "PROCESSOR",
+        "icon" : "laneSelector.png",
+        "description" : "",
+        "label" : "Stream Selector 1",
+        "xPos" : -710.2285397052765
+      },
+      "inputLanes" : [ "UDPSource_01OutputLane17297562868970" ],
+      "outputLanes" : [ "StreamSelector_05OutputLane1729756344562", "StreamSelector_05OutputLane1729756328937" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "Trash_01",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_devnull_NullDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "yPos" : -67.49314811825752,
+        "stageType" : "TARGET",
+        "icon" : "trash.png",
+        "description" : "",
+        "label" : "Trash 1",
+        "xPos" : -481.8361904621124
+      },
+      "inputLanes" : [ "StreamSelector_05OutputLane1729756344562" ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_17",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/deviceAddress",
+          "expression" : "${str:regExCapture(record:attribute('UDP_Sender'),'.(.+):',1)}"
+        }, {
+          "fieldToSet" : "/eventCount",
+          "expression" : "1"
+        }, {
+          "fieldToSet" : "/collectorSeverity",
+          "expression" : "${str:regExCapture(record:attribute('UDP_Recipient'),'.+:(.+)',1)}"
+        }, {
+          "fieldToSet" : "/rawEvent",
+          "expression" : "${record:value('/data')}"
+        }, {
+          "fieldToSet" : "/eventStartTime",
+          "expression" : "${time:dateTimeToMilliseconds( time:now())}"
+        }, {
+          "fieldToSet" : "/eventId",
+          "expression" : "${uuid:uuid()}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "yPos" : 140.63758087158203,
+        "stageType" : "PROCESSOR",
+        "icon" : "expression.png",
+        "description" : "",
+        "label" : "Expression Evaluator 3",
+        "xPos" : -491.66710782051086
+      },
+      "inputLanes" : [ "StreamSelector_05OutputLane1729756328937" ],
+      "outputLanes" : [ "ExpressionEvaluator_17OutputLane17297563718140" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "FieldRemover_05",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_fieldfilter_FieldFilterDProcessor",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "filterOperation",
+        "value" : "REMOVE"
+      }, {
+        "name" : "fields",
+        "value" : [ "/data" ]
+      }, {
+        "name" : "constant",
+        "value" : null
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "yPos" : 50,
+        "stageType" : "PROCESSOR",
+        "icon" : "filter.png",
+        "description" : "",
+        "label" : "Field Remover 2",
+        "xPos" : -271.66710782051086
+      },
+      "inputLanes" : [ "ExpressionEvaluator_17OutputLane17297563718140" ],
+      "outputLanes" : [ "FieldRemover_05OutputLane17297565199780" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "RedisLookupProcessor_01",
+      "library" : "streamsets-datacollector-redis-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_kv_redis_RedisLookupDProcessor",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "conf.uri",
+        "value" : "redis://redis-master-cs:6379"
+      }, {
+        "name" : "conf.connectionTimeout",
+        "value" : 60
+      }, {
+        "name" : "conf.mode",
+        "value" : "BATCH"
+      }, {
+        "name" : "conf.lookups",
+        "value" : [ {
+          "dataType" : "HASH",
+          "keyExpr" : "${str:concat(\"ip_\",str:concat(record:value('/deviceAddress'),record:value('/collectorSeverity')))}",
+          "outputFieldPath" : "/device_assets"
+        } ]
+      }, {
+        "name" : "conf.cache.enabled",
+        "value" : false
+      }, {
+        "name" : "conf.cache.maxSize",
+        "value" : -1
+      }, {
+        "name" : "conf.cache.evictionPolicyType",
+        "value" : null
+      }, {
+        "name" : "conf.cache.expirationTime",
+        "value" : 1
+      }, {
+        "name" : "conf.cache.timeUnit",
+        "value" : "SECONDS"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "yPos" : 50,
+        "stageType" : "PROCESSOR",
+        "icon" : "redis.png",
+        "description" : "",
+        "label" : "Redis Lookup Processor 1",
+        "xPos" : -51.667107820510864
+      },
+      "inputLanes" : [ "FieldRemover_05OutputLane17297565199780" ],
+      "outputLanes" : [ "RedisLookupProcessor_01OutputLane17297565634470" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_04",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/tenantId",
+          "expression" : "${record:value('/device_assets/tenant_no')==NULL ? 1 : record:value('/device_assets/tenant_no')}"
+        }, {
+          "fieldToSet" : "/tenantName",
+          "expression" : "${record:value('/device_assets/tenant_name')==NULL ? '융합보안관제센터' : record:value('/device_assets/tenant_name')}"
+        }, {
+          "fieldToSet" : "/domainId",
+          "expression" : "${record:value('/device_assets/dmn_no')==NULL ? 32 : record:value('/device_assets/dmn_no')}"
+        }, {
+          "fieldToSet" : "/domainName",
+          "expression" : "${record:value('/device_assets/dmn_name')==NULL ? '미확인자산' : record:value('/device_assets/dmn_name')}"
+        }, {
+          "fieldToSet" : "/customerId",
+          "expression" : "${record:value('/device_assets/custm_no')==NULL ? 2 : record:value('/device_assets/custm_no')}"
+        }, {
+          "fieldToSet" : "/assetsId",
+          "expression" : "${record:value('/device_assets/assetsid')==NULL ? 999999 : record:value('/device_assets/assetsid')}"
+        }, {
+          "fieldToSet" : "/deviceVendor",
+          "expression" : "${record:value('/device_assets/equip_vendor_name')==NULL ? record:value('/deviceVendor') : record:value('/device_assets/equip_vendor_name')}"
+        }, {
+          "fieldToSet" : "/deviceProcessName",
+          "expression" : "${record:value('/device_assets/comm_code_name')==NULL ? record:value('/deviceProcessName') : record:value('/device_assets/comm_code_name')}"
+        }, {
+          "fieldToSet" : "/deviceProduct",
+          "expression" : "${record:value('/device_assets/equip_model_name')==NULL ? record:value('/deviceProduct') : record:value('/device_assets/equip_model_name')}"
+        }, {
+          "fieldToSet" : "/deviceZoneId",
+          "expression" : "${record:value('/device_assets/zone_id')==NULL ? record:value('/deviceZoneId') : record:value('/device_assets/zone_id')}"
+        }, {
+          "fieldToSet" : "/deviceLocationMap",
+          "expression" : "${record:value('/device_assets/flr_area_map_name')==NULL ? record:value('/deviceLocationMap') : record:value('/device_assets/flr_area_map_name')}"
+        }, {
+          "fieldToSet" : "/deviceLocationArea",
+          "expression" : "${record:value('/device_assets/flr_area_name')==NULL ? record:value('/deviceLocationArea') : record:value('/device_assets/flr_area_name')}"
+        }, {
+          "fieldToSet" : "/deviceLocationFloor",
+          "expression" : "${record:value('/device_assets/flr_name')==NULL ? record:value('/deviceLocationFloor') : record:value('/device_assets/flr_name')}"
+        }, {
+          "fieldToSet" : "/deviceLocationBuilding",
+          "expression" : "${record:value('/device_assets/bild_name')==NULL ? record:value('/deviceLocationBuilding') : record:value('/device_assets/bild_name')}"
+        }, {
+          "fieldToSet" : "/deviceLocationSite",
+          "expression" : "${record:value('/device_assets/site_name')==NULL ? record:value('/deviceLocationSite') : record:value('/device_assets/site_name')}"
+        }, {
+          "fieldToSet" : "/providerId",
+          "expression" : "${record:value('/device_assets/prvdr_no')==NULL ? record:value('/providerId') : record:value('/device_assets/prvdr_no')}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Asset Info",
+        "xPos" : 198.02506136894226,
+        "yPos" : 51.458953857421875,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "RedisLookupProcessor_01OutputLane17297565634470" ],
+      "outputLanes" : [ "ExpressionEvaluator_04OutputLane15530035770450" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "StreamSelector_03",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_selector_SelectorDProcessor",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "lanePredicates",
+        "value" : [ {
+          "outputLane" : "StreamSelector_03OutputLane1554885398008",
+          "predicate" : "${str:contains(record:value('/rawEvent'),'junos') == true}"
+        }, {
+          "outputLane" : "StreamSelector_03OutputLane1554884557662",
+          "predicate" : "${str:contains(record:value('/rawEvent'),'junos') == false && str:contains(record:value('/rawEvent'),'icmp') == true}"
+        }, {
+          "outputLane" : "StreamSelector_03OutputLane1554884528781",
+          "predicate" : "${str:contains(record:value('/rawEvent'),'junos') == false && str:contains(record:value('/rawEvent'),'icmp') == false && str:contains(record:value('/rawEvent'),'reason') == false}"
+        }, {
+          "outputLane" : "StreamSelector_03OutputLane1554882500724",
+          "predicate" : "${str:contains(record:value('/rawEvent'),'junos') == false && str:contains(record:value('/rawEvent'),'icmp') == false && str:contains(record:value('/rawEvent'),'reason') == true}"
+        }, {
+          "outputLane" : "StreamSelector_03OutputLane1554882496174",
+          "predicate" : "default"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "event selector",
+        "xPos" : 432.5171573162079,
+        "yPos" : 56.21165466308594,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_04OutputLane15530035770450" ],
+      "outputLanes" : [ "StreamSelector_03OutputLane1554885398008", "StreamSelector_03OutputLane1554884557662", "StreamSelector_03OutputLane1554884528781", "StreamSelector_03OutputLane1554882500724", "StreamSelector_03OutputLane1554882496174" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "LogParser_01",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_logparser_LogParserDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "fieldPathToParse",
+        "value" : "/rawEvent"
+      }, {
+        "name" : "parsedFieldPath",
+        "value" : "/rawEventTemp"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "junos O",
+        "xPos" : 772.6008975505829,
+        "yPos" : 14.356948852539062,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "StreamSelector_03OutputLane1554885398008" ],
+      "outputLanes" : [ "LogParser_01OutputLane15518470393840" ],
+      "eventLanes" : [ ],
+      "services" : [ {
+        "service" : "com.streamsets.pipeline.api.service.dataformats.log.LogParserService",
+        "serviceVersion" : 1,
+        "configuration" : [ {
+          "name" : "logParserServiceConfig.removeCtrlChars",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.logMode",
+          "value" : "REGEX"
+        }, {
+          "name" : "logParserServiceConfig.customLogFormat",
+          "value" : "%h %l %u %t \"%r\" %>s %b"
+        }, {
+          "name" : "logParserServiceConfig.regex",
+          "value" : "\\S+\\s+(\\S+T\\S+)\\.\\S+\\s+(SK.+) RT_FLOW - (\\S+) \\[junos@.+reason=\"(.+)\" (source-address.+)\\]"
+        }, {
+          "name" : "logParserServiceConfig.fieldPathsToGroupName",
+          "value" : [ {
+            "fieldPath" : "dtime",
+            "group" : 1
+          }, {
+            "fieldPath" : "deviceHostName",
+            "group" : 2
+          }, {
+            "fieldPath" : "eventReason",
+            "group" : 3
+          }, {
+            "fieldPath" : "eventName",
+            "group" : 4
+          }, {
+            "fieldPath" : "tempData",
+            "group" : 5
+          } ]
+        }, {
+          "name" : "logParserServiceConfig.grokPatternDefinition",
+          "value" : null
+        }, {
+          "name" : "logParserServiceConfig.enableLog4jCustomLogFormat",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.log4jCustomLogFormat",
+          "value" : "%r [%t] %-5p %c %x - %m%n"
+        }, {
+          "name" : "logParserServiceConfig.logMaxObjectLen",
+          "value" : 1024
+        }, {
+          "name" : "logParserServiceConfig.retainOriginalLine",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.onParseError",
+          "value" : "ERROR"
+        }, {
+          "name" : "logParserServiceConfig.maxStackTraceLines",
+          "value" : 50
+        }, {
+          "name" : "logParserServiceConfig.charset",
+          "value" : "UTF-8"
+        }, {
+          "name" : "logParserServiceConfig.grokPatternList",
+          "value" : [ "%{COMMONAPACHELOG}" ]
+        } ]
+      } ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_05",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/parsed",
+          "expression" : "${str:splitKV(record:value('/rawEventTemp/tempData'), ' ', '=')}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "splitKV",
+        "xPos" : 1007.0991885662079,
+        "yPos" : 24.02350616455078,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "LogParser_01OutputLane15518470393840" ],
+      "outputLanes" : [ "ExpressionEvaluator_05OutputLane15530038691730" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "LogParser_02",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_logparser_LogParserDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "fieldPathToParse",
+        "value" : "/rawEvent"
+      }, {
+        "name" : "parsedFieldPath",
+        "value" : "/rawEventTemp"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "junos X icmp X reason X",
+        "xPos" : 765.9792544841766,
+        "yPos" : 236.99344635009766,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "StreamSelector_03OutputLane1554884528781" ],
+      "outputLanes" : [ "LogParser_02OutputLane15548827294360" ],
+      "eventLanes" : [ ],
+      "services" : [ {
+        "service" : "com.streamsets.pipeline.api.service.dataformats.log.LogParserService",
+        "serviceVersion" : 1,
+        "configuration" : [ {
+          "name" : "logParserServiceConfig.removeCtrlChars",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.logMode",
+          "value" : "REGEX"
+        }, {
+          "name" : "logParserServiceConfig.customLogFormat",
+          "value" : "%h %l %u %t \"%r\" %>s %b"
+        }, {
+          "name" : "logParserServiceConfig.regex",
+          "value" : ".+device_id=(.+) \\[Ro.+: start_time=\"(.+)\" (.+) service=(.+) (pro.+) src zone=(\\S+) dst zone=(\\S+) (.+)"
+        }, {
+          "name" : "logParserServiceConfig.fieldPathsToGroupName",
+          "value" : [ {
+            "fieldPath" : "deviceHostName",
+            "group" : 1
+          }, {
+            "fieldPath" : "tempData1",
+            "group" : 3
+          }, {
+            "fieldPath" : "destinationServiceName",
+            "group" : 4
+          }, {
+            "fieldPath" : "tempData2",
+            "group" : 5
+          }, {
+            "fieldPath" : "sourceZoneId",
+            "group" : 6
+          }, {
+            "fieldPath" : "destinationZoneID",
+            "group" : 7
+          }, {
+            "fieldPath" : "tempData3",
+            "group" : 8
+          }, {
+            "fieldPath" : "dtime",
+            "group" : 2
+          } ]
+        }, {
+          "name" : "logParserServiceConfig.grokPatternDefinition",
+          "value" : null
+        }, {
+          "name" : "logParserServiceConfig.enableLog4jCustomLogFormat",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.log4jCustomLogFormat",
+          "value" : "%r [%t] %-5p %c %x - %m%n"
+        }, {
+          "name" : "logParserServiceConfig.logMaxObjectLen",
+          "value" : 1024
+        }, {
+          "name" : "logParserServiceConfig.retainOriginalLine",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.onParseError",
+          "value" : "ERROR"
+        }, {
+          "name" : "logParserServiceConfig.maxStackTraceLines",
+          "value" : 50
+        }, {
+          "name" : "logParserServiceConfig.charset",
+          "value" : "UTF-8"
+        }, {
+          "name" : "logParserServiceConfig.grokPatternList",
+          "value" : [ "%{COMMONAPACHELOG}" ]
+        } ]
+      } ]
+    }, {
+      "instanceName" : "LogParser_03",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_logparser_LogParserDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "fieldPathToParse",
+        "value" : "/rawEvent"
+      }, {
+        "name" : "parsedFieldPath",
+        "value" : "/rawEventTemp"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "junos X icmp O",
+        "xPos" : 769.1326358318329,
+        "yPos" : 125.69281768798828,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "StreamSelector_03OutputLane1554884557662" ],
+      "outputLanes" : [ "LogParser_03OutputLane15548846015100" ],
+      "eventLanes" : [ ],
+      "services" : [ {
+        "service" : "com.streamsets.pipeline.api.service.dataformats.log.LogParserService",
+        "serviceVersion" : 1,
+        "configuration" : [ {
+          "name" : "logParserServiceConfig.removeCtrlChars",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.logMode",
+          "value" : "REGEX"
+        }, {
+          "name" : "logParserServiceConfig.customLogFormat",
+          "value" : "%h %l %u %t \"%r\" %>s %b"
+        }, {
+          "name" : "logParserServiceConfig.regex",
+          "value" : ".+device_id=(.+) \\[Ro.+: start_time=\"(.+)\" (.+) service=(.+) (pro.+) src zone=(\\S+) dst zone=(\\S+) (.+) icmp type=.+"
+        }, {
+          "name" : "logParserServiceConfig.fieldPathsToGroupName",
+          "value" : [ {
+            "fieldPath" : "deviceHostName",
+            "group" : 1
+          }, {
+            "fieldPath" : "tempData1",
+            "group" : 3
+          }, {
+            "fieldPath" : "destinationServiceName",
+            "group" : 4
+          }, {
+            "fieldPath" : "tempData2",
+            "group" : 5
+          }, {
+            "fieldPath" : "sourceZoneId",
+            "group" : 6
+          }, {
+            "fieldPath" : "destinationZoneID",
+            "group" : 7
+          }, {
+            "fieldPath" : "tempData3",
+            "group" : 8
+          }, {
+            "fieldPath" : "dtime",
+            "group" : 2
+          } ]
+        }, {
+          "name" : "logParserServiceConfig.grokPatternDefinition",
+          "value" : null
+        }, {
+          "name" : "logParserServiceConfig.enableLog4jCustomLogFormat",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.log4jCustomLogFormat",
+          "value" : "%r [%t] %-5p %c %x - %m%n"
+        }, {
+          "name" : "logParserServiceConfig.logMaxObjectLen",
+          "value" : 1024
+        }, {
+          "name" : "logParserServiceConfig.retainOriginalLine",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.onParseError",
+          "value" : "ERROR"
+        }, {
+          "name" : "logParserServiceConfig.maxStackTraceLines",
+          "value" : 50
+        }, {
+          "name" : "logParserServiceConfig.charset",
+          "value" : "UTF-8"
+        }, {
+          "name" : "logParserServiceConfig.grokPatternList",
+          "value" : [ "%{COMMONAPACHELOG}" ]
+        } ]
+      } ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_06",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/parsed1",
+          "expression" : "${str:splitKV(record:value('/rawEventTemp/tempData1'), ' ', '=')}"
+        }, {
+          "fieldToSet" : "/parsed2",
+          "expression" : "${str:splitKV(record:value('/rawEventTemp/tempData2'), ' ', '=')}"
+        }, {
+          "fieldToSet" : "/parsed3",
+          "expression" : "${str:splitKV(record:value('/rawEventTemp/tempData3'), ' ', '=')}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "splitKV",
+        "xPos" : 998.1720035076141,
+        "yPos" : 186.80791473388672,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "LogParser_02OutputLane15548827294360", "LogParser_03OutputLane15548846015100" ],
+      "outputLanes" : [ "ExpressionEvaluator_06OutputLane15548828072210" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ToError_06",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_toerror_ToErrorDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "To Error 5",
+        "xPos" : 763.0947329998016,
+        "yPos" : 457.58140563964844,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ "StreamSelector_03OutputLane1554882496174" ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "LogParser_04",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_logparser_LogParserDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "fieldPathToParse",
+        "value" : "/rawEvent"
+      }, {
+        "name" : "parsedFieldPath",
+        "value" : "/rawEventTemp"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "junos X icmp X reason O",
+        "xPos" : 763.5315005779266,
+        "yPos" : 342.11351776123047,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "StreamSelector_03OutputLane1554882500724" ],
+      "outputLanes" : [ "LogParser_04OutputLane15548854898900" ],
+      "eventLanes" : [ ],
+      "services" : [ {
+        "service" : "com.streamsets.pipeline.api.service.dataformats.log.LogParserService",
+        "serviceVersion" : 1,
+        "configuration" : [ {
+          "name" : "logParserServiceConfig.removeCtrlChars",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.logMode",
+          "value" : "REGEX"
+        }, {
+          "name" : "logParserServiceConfig.customLogFormat",
+          "value" : "%h %l %u %t \"%r\" %>s %b"
+        }, {
+          "name" : "logParserServiceConfig.regex",
+          "value" : ".+device_id=(.+) \\[Ro.+: start_time=\"(.+)\" (.+) service=(.+) (pro.+) src zone=(\\S+) dst zone=(\\S+) (.+) reason=(.+)"
+        }, {
+          "name" : "logParserServiceConfig.fieldPathsToGroupName",
+          "value" : [ {
+            "fieldPath" : "deviceHostName",
+            "group" : 1
+          }, {
+            "fieldPath" : "tempData1",
+            "group" : 3
+          }, {
+            "fieldPath" : "destinationServiceName",
+            "group" : 4
+          }, {
+            "fieldPath" : "tempData2",
+            "group" : 5
+          }, {
+            "fieldPath" : "sourceZoneId",
+            "group" : 6
+          }, {
+            "fieldPath" : "destinationZoneId",
+            "group" : 7
+          }, {
+            "fieldPath" : "tempData3",
+            "group" : 8
+          }, {
+            "fieldPath" : "eventName",
+            "group" : 9
+          }, {
+            "fieldPath" : "dtime",
+            "group" : 2
+          } ]
+        }, {
+          "name" : "logParserServiceConfig.grokPatternDefinition",
+          "value" : null
+        }, {
+          "name" : "logParserServiceConfig.enableLog4jCustomLogFormat",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.log4jCustomLogFormat",
+          "value" : "%r [%t] %-5p %c %x - %m%n"
+        }, {
+          "name" : "logParserServiceConfig.logMaxObjectLen",
+          "value" : 1024
+        }, {
+          "name" : "logParserServiceConfig.retainOriginalLine",
+          "value" : false
+        }, {
+          "name" : "logParserServiceConfig.onParseError",
+          "value" : "ERROR"
+        }, {
+          "name" : "logParserServiceConfig.maxStackTraceLines",
+          "value" : 50
+        }, {
+          "name" : "logParserServiceConfig.charset",
+          "value" : "UTF-8"
+        }, {
+          "name" : "logParserServiceConfig.grokPatternList",
+          "value" : [ "%{COMMONAPACHELOG}" ]
+        } ]
+      } ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_07",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/parsed1",
+          "expression" : "${str:splitKV(record:value('/rawEventTemp/tempData1'), ' ', '=')}"
+        }, {
+          "fieldToSet" : "/parsed2",
+          "expression" : "${str:splitKV(record:value('/rawEventTemp/tempData2'), ' ', '=')}"
+        }, {
+          "fieldToSet" : "/parsed3",
+          "expression" : "${str:splitKV(record:value('/rawEventTemp/tempData3'), ' ', '=')}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "splitKV",
+        "xPos" : 991.3194644451141,
+        "yPos" : 336.06639862060547,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "LogParser_04OutputLane15548854898900" ],
+      "outputLanes" : [ "ExpressionEvaluator_07OutputLane15548860158630" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_08",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/eR",
+          "expression" : "${record:exists('/rawEventTemp/eventReason') ? str:replace(record:value('/rawEventTemp/eventReason'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/deviceHostName",
+          "expression" : "${record:exists('/rawEventTemp/deviceHostName') ? str:replace(record:value('/rawEventTemp/deviceHostName'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/sourceAddress",
+          "expression" : "${record:exists('/parsed/source-address') ? str:replace(record:value('/parsed/source-address'),'\"','') : '0.0.0.0'}"
+        }, {
+          "fieldToSet" : "/sourcePort",
+          "expression" : "${record:exists('/parsed/source-port') ? str:replace(record:value('/parsed/source-port'),'\"','') : 0}"
+        }, {
+          "fieldToSet" : "/destinationAddress",
+          "expression" : "${record:exists('/parsed/destination-address') ? str:replace(record:value('/parsed/destination-address'),'\"','') : '0.0.0.0'}"
+        }, {
+          "fieldToSet" : "/destinationPort",
+          "expression" : "${record:exists('/parsed/destination-port') ? str:replace(record:value('/parsed/destination-port'),'\"','') : 0}"
+        }, {
+          "fieldToSet" : "/destinationServiceName",
+          "expression" : "${record:exists('/parsed/service-name') ? str:replace(record:value('/parsed/service-name'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/applicationProtocol",
+          "expression" : "${record:exists('/parsed/protocol-id') ? str:replace(record:value('/parsed/protocol-id'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/sourceZoneId",
+          "expression" : "${record:exists('/parsed/source-zone-name') ? str:replace(record:value('/parsed/source-zone-name'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/destinationZoneId",
+          "expression" : "${record:exists('/parsed/destination-zone-name') ? str:replace(record:value('/parsed/destination-zone-name'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/sourceUserId",
+          "expression" : "${record:exists('/parsed/username') ? str:replace(record:value('/parsed/username'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/eventName",
+          "expression" : "${record:exists('/rawEventTemp/eventName') ? str:replace(record:value('/rawEventTemp/eventName'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/deviceReceiptTime",
+          "expression" : "${time:dateTimeToMilliseconds(time:extractDateFromString(str:replace(record:value('/rawEventTemp/dtime'),'T',' '),'yyyy-MM-dd HH:mm:ss')) - 32400000}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "mapping",
+        "xPos" : 1211.6934268474579,
+        "yPos" : 71.21358489990234,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_05OutputLane15530038691730" ],
+      "outputLanes" : [ "ExpressionEvaluator_08OutputLane15548867063240" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_09",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/eR",
+          "expression" : "${record:exists('/parsed3/action') ? str:replace(record:value('/parsed3/action'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/deviceHostName",
+          "expression" : "${record:exists('/rawEventTemp/deviceHostName') ? str:replace(record:value('/rawEventTemp/deviceHostName'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/sourceAddress",
+          "expression" : "${record:exists('/parsed3/src') ? str:replace(record:value('/parsed3/src'),'\"','') : '0.0.0.0'}"
+        }, {
+          "fieldToSet" : "/sourcePort",
+          "expression" : "${record:exists('/parsed3/src_port') ? str:replace(record:value('/parsed3/src_port'),'\"','') : 0}"
+        }, {
+          "fieldToSet" : "/destinationAddress",
+          "expression" : "${record:exists('/parsed3/dst') ? str:replace(record:value('/parsed3/dst'),'\"','') : '0.0.0.0'}"
+        }, {
+          "fieldToSet" : "/destinationPort",
+          "expression" : "${record:exists('/parsed3/dst_port') ? str:replace(record:value('/parsed3/dst_port'),'\"','') : 0}"
+        }, {
+          "fieldToSet" : "/destinationServiceName",
+          "expression" : "${record:exists('/rawEventTemp/destinationServiceName') ? str:replace(record:value('/rawEventTemp/destinationServiceName'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/applicationProtocol",
+          "expression" : "${record:exists('/parsed2/proto') ? str:replace(record:value('/parsed2/proto'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/sourceZoneId",
+          "expression" : "${record:exists('/rawEventTemp/sourceZoneId') ? str:replace(record:value('/rawEventTemp/sourceZoneId'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/destinationZoneId",
+          "expression" : "${record:exists('/rawEventTemp/destinationZoneID') ? str:replace(record:value('/rawEventTemp/destinationZoneID'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/sourceUserId",
+          "expression" : "${record:exists('/parsed3/username') ? str:replace(record:value('/parsed3/username'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/eventName",
+          "expression" : "${record:exists('/rawEventTemp/eventName') ? str:replace(record:value('/rawEventTemp/eventName'),'\"','') : ''}"
+        }, {
+          "fieldToSet" : "/deviceReceiptTime",
+          "expression" : "${time:dateTimeToMilliseconds(time:extractDateFromString(record:value('/rawEventTemp/dtime'),'yyyy-MM-dd HH:mm:ss')) - 32400000}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "mapping",
+        "xPos" : 1204.0795962810516,
+        "yPos" : 206.02982330322266,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_06OutputLane15548828072210", "ExpressionEvaluator_07OutputLane15548860158630" ],
+      "outputLanes" : [ "ExpressionEvaluator_09OutputLane15548928108310" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "StreamSelector_04",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_selector_SelectorDProcessor",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "lanePredicates",
+        "value" : [ {
+          "outputLane" : "StreamSelector_04OutputLane15639450831380",
+          "predicate" : "${record:value('/domainId') == 32}"
+        }, {
+          "outputLane" : "StreamSelector_04OutputLane15639450831381",
+          "predicate" : "default"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Action Selector",
+        "xPos" : 1399.6208560466766,
+        "yPos" : 142.2283706665039,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_09OutputLane15548928108310", "ExpressionEvaluator_08OutputLane15548867063240" ],
+      "outputLanes" : [ "StreamSelector_04OutputLane15639450831380", "StreamSelector_04OutputLane15639450831381" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_14",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/eventReason",
+          "expression" : "${str:concat('JUNIPER_',str:toUpper(record:value('/eR')))}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "eventReason Gen",
+        "xPos" : 1604.5216128826141,
+        "yPos" : 207.22589874267578,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "StreamSelector_04OutputLane15639450831381" ],
+      "outputLanes" : [ "ExpressionEvaluator_14OutputLane15639452237880" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_12",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/eventReason",
+          "expression" : "미등록자산로그"
+        }, {
+          "fieldToSet" : "/deviceCustomString1",
+          "expression" : "${str:concat('JUNIPER_',str:toUpper(record:value('/eR')))}"
+        }, {
+          "fieldToSet" : "/deviceCustomString1Label",
+          "expression" : "eventReason"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "NonAsset Reason",
+        "xPos" : 1603.9371402263641,
+        "yPos" : 78.99593305587769,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "StreamSelector_04OutputLane15639450831380" ],
+      "outputLanes" : [ "ExpressionEvaluator_12OutputLane15556435160660" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_13",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/eventId",
+          "expression" : "${record:exists('/eventId') ? record:value('/eventId') : '0'}"
+        }, {
+          "fieldToSet" : "/deviceAddress",
+          "expression" : "${record:exists('/deviceAddress') ? record:value('/deviceAddress') : '0.0.0.0'}"
+        }, {
+          "fieldToSet" : "/rawEvent",
+          "expression" : "${str:toUpper(record:exists('/rawEvent') ? record:value('/rawEvent') : '')}"
+        }, {
+          "fieldToSet" : "/eventCount",
+          "expression" : "${record:exists('/eventCount') ? (record:value('/eventCount') == null || record:value('/eventCount') == '' ? 1 : record:value('/eventCount')) : 1}"
+        }, {
+          "fieldToSet" : "/collectorSeverity",
+          "expression" : "${record:exists('/collectorSeverity') ? (record:value('/collectorSeverity') == null || record:value('/collectorSeverity') == '' ? 0 : record:value('/collectorSeverity')) : 0}"
+        }, {
+          "fieldToSet" : "/eventStartTime",
+          "expression" : "${record:exists('/eventStartTime') ? (record:value('/eventStartTime') == null || record:value('/eventStartTime') == '' ? 0 : record:value('/eventStartTime')) : 0}"
+        }, {
+          "fieldToSet" : "/tenantId",
+          "expression" : "${record:exists('/tenantId') ? (record:value('/tenantId') == null || record:value('/tenantId') == '' ? 0 : record:value('/tenantId')) : 0}"
+        }, {
+          "fieldToSet" : "/tenantName",
+          "expression" : "${str:toUpper(record:exists('/tenantName') ? record:value('/tenantName') : '')}"
+        }, {
+          "fieldToSet" : "/domainId",
+          "expression" : "${record:exists('/domainId') ? (record:value('/domainId') == null || record:value('/domainId') == '' ? 0 : record:value('/domainId')) : 0}"
+        }, {
+          "fieldToSet" : "/domainName",
+          "expression" : "${str:toUpper(record:exists('/domainName') ? record:value('/domainName') : '')}"
+        }, {
+          "fieldToSet" : "/customerId",
+          "expression" : "${record:exists('/customerId') ? (record:value('/customerId') == null || record:value('/customerId') == '' ? 0 : record:value('/customerId')) : 0}"
+        }, {
+          "fieldToSet" : "/assetsId",
+          "expression" : "${record:exists('/assetsId') ? (record:value('/assetsId') == null || record:value('/assetsId') == '' ? 0 : record:value('/assetsId')) : 0}"
+        }, {
+          "fieldToSet" : "/deviceVendor",
+          "expression" : "${str:toUpper(record:exists('/deviceVendor') ? record:value('/deviceVendor') : '')}"
+        }, {
+          "fieldToSet" : "/deviceProcessName",
+          "expression" : "${str:toUpper(record:exists('/deviceProcessName') ? record:value('/deviceProcessName') : '')}"
+        }, {
+          "fieldToSet" : "/deviceProduct",
+          "expression" : "${str:toUpper(record:exists('/deviceProduct') ? record:value('/deviceProduct') : '')}"
+        }, {
+          "fieldToSet" : "/deviceZoneId",
+          "expression" : "${str:toUpper(record:exists('/deviceZoneId') ? record:value('/deviceZoneId') : '')}"
+        }, {
+          "fieldToSet" : "/deviceLocationSite",
+          "expression" : "${str:toUpper(record:exists('/deviceLocationSite') ? record:value('/deviceLocationSite') : '')}"
+        }, {
+          "fieldToSet" : "/deviceLocationBuilding",
+          "expression" : "${str:toUpper(record:exists('/deviceLocationBuilding') ? record:value('/deviceLocationBuilding') : '')}"
+        }, {
+          "fieldToSet" : "/deviceLocationFloor",
+          "expression" : "${str:toUpper(record:exists('/deviceLocationFloor') ? record:value('/deviceLocationFloor') : '')}"
+        }, {
+          "fieldToSet" : "/deviceLocationArea",
+          "expression" : "${str:toUpper(record:exists('/deviceLocationArea') ? record:value('/deviceLocationArea') : '')}"
+        }, {
+          "fieldToSet" : "/deviceLocationMap",
+          "expression" : "${str:toUpper(record:exists('/deviceLocationMap') ? record:value('/deviceLocationMap') : '')}"
+        }, {
+          "fieldToSet" : "/destinationLocationArea",
+          "expression" : "${str:toUpper(record:exists('/destinationLocationArea') ? record:value('/destinationLocationArea') : '')}"
+        }, {
+          "fieldToSet" : "/deviceHostName",
+          "expression" : "${str:toUpper(record:exists('/deviceHostName') ? record:value('/deviceHostName') : '')}"
+        }, {
+          "fieldToSet" : "/eventName",
+          "expression" : "${str:toUpper(record:exists('/eventName') ? record:value('/eventName') : '')}"
+        }, {
+          "fieldToSet" : "/sourceAddress",
+          "expression" : "${record:exists('/sourceAddress') ? record:value('/sourceAddress') : '0.0.0.0'}"
+        }, {
+          "fieldToSet" : "/sourcePort",
+          "expression" : "${record:exists('/sourcePort') ? (record:value('/sourcePort') == null || record:value('/sourcePort') == '' ? 0 : record:value('/sourcePort')) : 0}"
+        }, {
+          "fieldToSet" : "/destinationAddress",
+          "expression" : "${record:exists('/destinationAddress') ? record:value('/destinationAddress') : '0.0.0.0'}"
+        }, {
+          "fieldToSet" : "/destinationPort",
+          "expression" : "${record:exists('/destinationPort') ? (record:value('/destinationPort') == null || record:value('/destinationPort') == '' ? 0 : record:value('/destinationPort')) : 0}"
+        }, {
+          "fieldToSet" : "/eventReason",
+          "expression" : "${str:toUpper(record:exists('/eventReason') ? record:value('/eventReason') : '')}"
+        }, {
+          "fieldToSet" : "/applicationProtocol",
+          "expression" : "${str:toUpper(record:exists('/applicationProtocol') ? record:value('/applicationProtocol') : '')}"
+        }, {
+          "fieldToSet" : "/sourceUserId",
+          "expression" : "${str:toUpper(record:exists('/sourceUserId') ? record:value('/sourceUserId') : '')}"
+        }, {
+          "fieldToSet" : "/destinationServiceName",
+          "expression" : "${str:toUpper(record:exists('/destinationServiceName') ? record:value('/destinationServiceName') : '')}"
+        }, {
+          "fieldToSet" : "/sourceZoneId",
+          "expression" : "${str:toUpper(record:exists('/sourceZoneId') ? record:value('/sourceZoneId') : '')}"
+        }, {
+          "fieldToSet" : "/destinationZoneId",
+          "expression" : "${str:toUpper(record:exists('/destinationZoneId') ? record:value('/destinationZoneId') : '')}"
+        }, {
+          "fieldToSet" : "/providerId",
+          "expression" : "${record:exists('/providerId') ? (record:value('/providerId') == null || record:value('/providerId') == '' ? 0 : record:value('/providerId')) : 0}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Set ValueField",
+        "xPos" : 1809.3223941326141,
+        "yPos" : 144.32768630981445,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_12OutputLane15556435160660", "ExpressionEvaluator_14OutputLane15639452237880" ],
+      "outputLanes" : [ "ExpressionEvaluator_13OutputLane15592145547360" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_11",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/collectorId",
+          "expression" : "${sdc:hostname()}"
+        }, {
+          "fieldToSet" : "/collectorAddress",
+          "expression" : "10.90.32.32"
+        }, {
+          "fieldToSet" : "/collectorSeverity",
+          "expression" : "0"
+        }, {
+          "fieldToSet" : "/collectorTimeZone",
+          "expression" : "Asia/Seoul"
+        }, {
+          "fieldToSet" : "/collectorTimeZoneOffset",
+          "expression" : "9"
+        }, {
+          "fieldToSet" : "/collectorReceiptTime",
+          "expression" : "${time:dateTimeToMilliseconds(time:now())}"
+        }, {
+          "fieldToSet" : "/collectorVersion",
+          "expression" : "3.5.2.2"
+        }, {
+          "fieldToSet" : "/applicationProtocol",
+          "expression" : "${record:exists('/applicationProtocol') ? record:value('/applicationProtocol') : 'UDP/FW-Juniper'}"
+        }, {
+          "fieldToSet" : "/rawEventLength",
+          "expression" : "${str:length(record:value('/rawEvent'))}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Set Collector Field",
+        "xPos" : 1976.4486758708954,
+        "yPos" : 142.20584869384766,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_13OutputLane15592145547360" ],
+      "outputLanes" : [ "ExpressionEvaluator_11OutputLane15548957368350" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "FieldRemover_03",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_fieldfilter_FieldFilterDProcessor",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "filterOperation",
+        "value" : "REMOVE"
+      }, {
+        "name" : "fields",
+        "value" : [ "/rawEventTemp", "/parsed1", "/parsed2", "/parsed3", "/parsed", "/device_assets", "/eR" ]
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      }, {
+        "name" : "constant",
+        "value" : null
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Remove Temp Field",
+        "xPos" : 2156.015753507614,
+        "yPos" : 140.39531707763672,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_11OutputLane15548957368350" ],
+      "outputLanes" : [ "FieldRemover_03OutputLane15548959118190" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "FieldTypeConverter_01",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_fieldtypeconverter_FieldTypeConverterDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "convertBy",
+        "value" : "BY_FIELD"
+      }, {
+        "name" : "fieldTypeConverterConfigs",
+        "value" : [ {
+          "fields" : [ "/eventType", "/eventCount", "/eventRisk*", "/bytes*", "/*Length", "/collectorTimeZoneOffset", "/*Port", "/deviceDirection", "/*ProcessId", "/*Severity", "/*Size", "/vasEventType", "/vasAlgorithm" ],
+          "targetType" : "INTEGER",
+          "treatInputFieldAsDate" : false,
+          "dataLocale" : "ko,KR",
+          "scale" : -1,
+          "decimalScaleRoundingStrategy" : "ROUND_UNNECESSARY",
+          "dateFormat" : "YYYY_MM_DD",
+          "zonedDateTimeFormat" : "ISO_ZONED_DATE_TIME",
+          "encoding" : "UTF-8"
+        }, {
+          "fields" : [ "/*Time", "/deviceSerial", "/deviceServerCode", "/deviceCustomDate1", "/deviceCustomDate2", "/deviceCustomNumber1", "/deviceCustomNumber2", "/deviceCustomNumber3", "/flexDate1", "/flexDate2", "/flexDate3", "/flexDate4", "/flexNumber1", "/flexNumber2" ],
+          "targetType" : "LONG",
+          "treatInputFieldAsDate" : false,
+          "dataLocale" : "ko,KR",
+          "scale" : -1,
+          "decimalScaleRoundingStrategy" : "ROUND_UNNECESSARY",
+          "dateFormat" : "YYYY_MM_DD",
+          "zonedDateTimeFormat" : "ISO_ZONED_DATE_TIME",
+          "encoding" : "UTF-8"
+        }, {
+          "fields" : [ "/eventId", "/eventCategory", "/eventClassId", "/eventReason", "/eventOutCome", "/rawEvent", "/customerId", "/providerId", "/tenantId", "/domainId", "/applicationProtocol", "/collectorType", "/collectorId", "/assetsId", "/deviceAction", "/deviceCustomString*", "/deviceFacility", "/*Interface", "/deviceProduct", "/devicePayloadId", "/deviceTimeFormat", "/*TimeZone", "/deviceVendor", "/*Version", "/fileId", "/fileType", "/flexString*", "/*Label", "/*Hash", "/oldFileId", "/*Path", "/*Permission", "/oldFileType", "/request*", "/*CountryCode", "/*Address", "/*Domain", "/*UserId", "/*Privileges", "/*ZoneId", "/*Site", "/*Building", "/*Floor", "/*Area", "/*Map", "/deviceChannelId", "/*Name", "/vasUuid", "/vasObject", "/motion*", "/hr*", "/geoPoint*" ],
+          "targetType" : "STRING",
+          "treatInputFieldAsDate" : false,
+          "dataLocale" : "en,US",
+          "scale" : -1,
+          "decimalScaleRoundingStrategy" : "ROUND_UNNECESSARY",
+          "dateFormat" : "YYYY_MM_DD",
+          "zonedDateTimeFormat" : "ISO_ZONED_DATE_TIME",
+          "encoding" : "UTF-8"
+        } ]
+      }, {
+        "name" : "wholeTypeConverterConfigs",
+        "value" : [ {
+          "sourceType" : "INTEGER",
+          "targetType" : "INTEGER",
+          "treatInputFieldAsDate" : false,
+          "dataLocale" : "en,US",
+          "scale" : -1,
+          "decimalScaleRoundingStrategy" : "ROUND_UNNECESSARY",
+          "dateFormat" : "YYYY_MM_DD",
+          "zonedDateTimeFormat" : "ISO_ZONED_DATE_TIME",
+          "encoding" : "UTF-8"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Order Field Type",
+        "xPos" : 2362.8090274333954,
+        "yPos" : 102.2032241821289,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "FieldRemover_03OutputLane15548959118190" ],
+      "outputLanes" : [ "FieldTypeConverter_01OutputLane15548957811770" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "FieldRemover_04",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_fieldfilter_FieldFilterDProcessor",
+      "stageVersion" : "1",
+      "configuration" : [ {
+        "name" : "filterOperation",
+        "value" : "KEEP"
+      }, {
+        "name" : "fields",
+        "value" : [ "/assetsId", "/eventId", "/eventStartTime" ]
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      }, {
+        "name" : "constant",
+        "value" : null
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Field Remover HealthCheck",
+        "xPos" : 2361.5075747966766,
+        "yPos" : 227.45162963867188,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "FieldRemover_03OutputLane15548959118190" ],
+      "outputLanes" : [ "FieldRemover_04OutputLane15633460861120" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "Redis_02",
+      "library" : "streamsets-datacollector-redis-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_redis_RedisDTarget",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "conf.uri",
+        "value" : "redis://redis-master-cs:6379/3"
+      }, {
+        "name" : "conf.connectionTimeout",
+        "value" : 60
+      }, {
+        "name" : "conf.maxRetries",
+        "value" : 0
+      }, {
+        "name" : "conf.maxBatchWaitTime",
+        "value" : "${5 * SECONDS}"
+      }, {
+        "name" : "conf.mode",
+        "value" : "BATCH"
+      }, {
+        "name" : "conf.redisFieldMapping",
+        "value" : [ {
+          "keyExpr" : "/assetsId",
+          "valExpr" : "/",
+          "dataType" : "HASH",
+          "ttl" : 0
+        } ]
+      }, {
+        "name" : "conf.dataFormat",
+        "value" : "JSON"
+      }, {
+        "name" : "conf.channel",
+        "value" : [ ]
+      }, {
+        "name" : "conf.dataFormatConfig.charset",
+        "value" : "UTF-8"
+      }, {
+        "name" : "conf.dataFormatConfig.csvFileFormat",
+        "value" : "CSV"
+      }, {
+        "name" : "conf.dataFormatConfig.csvHeader",
+        "value" : "NO_HEADER"
+      }, {
+        "name" : "conf.dataFormatConfig.csvReplaceNewLines",
+        "value" : true
+      }, {
+        "name" : "conf.dataFormatConfig.csvReplaceNewLinesString",
+        "value" : " "
+      }, {
+        "name" : "conf.dataFormatConfig.csvCustomDelimiter",
+        "value" : "|"
+      }, {
+        "name" : "conf.dataFormatConfig.csvCustomEscape",
+        "value" : "\\"
+      }, {
+        "name" : "conf.dataFormatConfig.csvCustomQuote",
+        "value" : "\""
+      }, {
+        "name" : "conf.dataFormatConfig.jsonMode",
+        "value" : "MULTIPLE_OBJECTS"
+      }, {
+        "name" : "conf.dataFormatConfig.textFieldPath",
+        "value" : "/text"
+      }, {
+        "name" : "conf.dataFormatConfig.textRecordSeparator",
+        "value" : "\\n"
+      }, {
+        "name" : "conf.dataFormatConfig.textFieldMissingAction",
+        "value" : "ERROR"
+      }, {
+        "name" : "conf.dataFormatConfig.textEmptyLineIfNull",
+        "value" : false
+      }, {
+        "name" : "conf.dataFormatConfig.avroSchemaSource",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.avroSchema",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.registerSchema",
+        "value" : false
+      }, {
+        "name" : "conf.dataFormatConfig.schemaRegistryUrlsForRegistration",
+        "value" : [ ]
+      }, {
+        "name" : "conf.dataFormatConfig.schemaRegistryUrls",
+        "value" : [ ]
+      }, {
+        "name" : "conf.dataFormatConfig.schemaLookupMode",
+        "value" : "SUBJECT"
+      }, {
+        "name" : "conf.dataFormatConfig.subject",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.subjectToRegister",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.schemaId",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.includeSchema",
+        "value" : true
+      }, {
+        "name" : "conf.dataFormatConfig.avroCompression",
+        "value" : "NULL"
+      }, {
+        "name" : "conf.dataFormatConfig.binaryFieldPath",
+        "value" : "/"
+      }, {
+        "name" : "conf.dataFormatConfig.protoDescriptorFile",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.messageType",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.fileNameEL",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.wholeFileExistsAction",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "conf.dataFormatConfig.includeChecksumInTheEvents",
+        "value" : false
+      }, {
+        "name" : "conf.dataFormatConfig.checksumAlgorithm",
+        "value" : "MD5"
+      }, {
+        "name" : "conf.dataFormatConfig.xmlPrettyPrint",
+        "value" : true
+      }, {
+        "name" : "conf.dataFormatConfig.xmlValidateSchema",
+        "value" : false
+      }, {
+        "name" : "conf.dataFormatConfig.xmlSchema",
+        "value" : null
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      }, {
+        "name" : "conf.dataFormatConfig.csvQuoteMode",
+        "value" : "MINIMAL"
+      }, {
+        "name" : "conf.dataFormatConfig.basicAuthUserInfo",
+        "value" : null
+      }, {
+        "name" : "conf.dataFormatConfig.basicAuthUserInfoForRegistration",
+        "value" : null
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Redis HealthCheck",
+        "xPos" : 2554.354620695114,
+        "yPos" : 225.9506378173828,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ "FieldRemover_04OutputLane15633460861120" ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "ExpressionEvaluator_15",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_processor_expression_ExpressionDProcessor",
+      "stageVersion" : "2",
+      "configuration" : [ {
+        "name" : "expressionProcessorConfigs",
+        "value" : [ {
+          "fieldToSet" : "/baseEventLength",
+          "expression" : "${str:length(record:value('/'))}"
+        } ]
+      }, {
+        "name" : "headerAttributeConfigs",
+        "value" : [ { } ]
+      }, {
+        "name" : "fieldAttributeConfigs",
+        "value" : [ {
+          "fieldToSet" : "/"
+        } ]
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Expression Evaluator 1",
+        "xPos" : 2546.7807071208954,
+        "yPos" : 102.2032241821289,
+        "stageType" : "PROCESSOR"
+      },
+      "inputLanes" : [ "FieldTypeConverter_01OutputLane15548957811770" ],
+      "outputLanes" : [ "ExpressionEvaluator_15OutputLane15863961789250" ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    }, {
+      "instanceName" : "KafkaProducer_02",
+      "library" : "streamsets-datacollector-apache-kafka_2_0-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_kafka_KafkaDTarget",
+      "stageVersion" : "7",
+      "configuration" : [ {
+        "name" : "conf.dataFormat",
+        "value" : "JSON"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.charset",
+        "value" : "UTF-8"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvFileFormat",
+        "value" : "CSV"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvHeader",
+        "value" : "NO_HEADER"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvReplaceNewLines",
+        "value" : true
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvReplaceNewLinesString",
+        "value" : " "
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvCustomDelimiter",
+        "value" : "|"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvCustomEscape",
+        "value" : "\\"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvCustomQuote",
+        "value" : "\""
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.jsonMode",
+        "value" : "MULTIPLE_OBJECTS"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.textFieldPath",
+        "value" : "/text"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.textRecordSeparator",
+        "value" : "\\n"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.textFieldMissingAction",
+        "value" : "ERROR"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.textEmptyLineIfNull",
+        "value" : false
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.avroSchemaSource",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.avroSchema",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.registerSchema",
+        "value" : false
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.schemaRegistryUrlsForRegistration",
+        "value" : [ ]
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.schemaRegistryUrls",
+        "value" : [ ]
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.schemaLookupMode",
+        "value" : "SUBJECT"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.subject",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.subjectToRegister",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.schemaId",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.includeSchema",
+        "value" : true
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.avroCompression",
+        "value" : "NULL"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.binaryFieldPath",
+        "value" : "/"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.protoDescriptorFile",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.messageType",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.fileNameEL",
+        "value" : null
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.wholeFileExistsAction",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.includeChecksumInTheEvents",
+        "value" : false
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.checksumAlgorithm",
+        "value" : "MD5"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.xmlPrettyPrint",
+        "value" : true
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.xmlValidateSchema",
+        "value" : false
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.xmlSchema",
+        "value" : null
+      }, {
+        "name" : "conf.metadataBrokerList",
+        "value" : "kafka-svc:9093"
+      }, {
+        "name" : "conf.runtimeTopicResolution",
+        "value" : false
+      }, {
+        "name" : "conf.topicExpression",
+        "value" : "${record:value('/topic')}"
+      }, {
+        "name" : "conf.topicWhiteList",
+        "value" : "*"
+      }, {
+        "name" : "conf.topic",
+        "value" : "base-event"
+      }, {
+        "name" : "conf.partitionStrategy",
+        "value" : "ROUND_ROBIN"
+      }, {
+        "name" : "conf.partition",
+        "value" : "${0}"
+      }, {
+        "name" : "conf.singleMessagePerBatch",
+        "value" : false
+      }, {
+        "name" : "conf.keySerializer",
+        "value" : "STRING"
+      }, {
+        "name" : "conf.valueSerializer",
+        "value" : "DEFAULT"
+      }, {
+        "name" : "conf.kafkaProducerConfigs",
+        "value" : [ {
+          "key" : "acks",
+          "value" : "1"
+        } ]
+      }, {
+        "name" : "responseConf.sendResponseToOrigin",
+        "value" : false
+      }, {
+        "name" : "responseConf.responseType",
+        "value" : "SUCCESS_RECORDS"
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      }, {
+        "name" : "stageRequiredFields",
+        "value" : [ ]
+      }, {
+        "name" : "stageRecordPreconditions",
+        "value" : [ ]
+      }, {
+        "name" : "conf.messageKeyFormat",
+        "value" : "STRING"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.basicAuthUserInfo",
+        "value" : ""
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.basicAuthUserInfoForRegistration",
+        "value" : ""
+      }, {
+        "name" : "conf.provideKeytab",
+        "value" : false
+      }, {
+        "name" : "conf.userKeytab",
+        "value" : ""
+      }, {
+        "name" : "conf.userPrincipal",
+        "value" : "user/host@REALM"
+      }, {
+        "name" : "conf.dataGeneratorFormatConfig.csvQuoteMode",
+        "value" : "MINIMAL"
+      }, {
+        "name" : "conf.avroMessageKey",
+        "value" : "${avro:decode(record:attribute('avroKeySchema'),base64:decodeBytes(record:attribute('kafkaMessageKey')))}"
+      }, {
+        "name" : "conf.stringMessageKey",
+        "value" : "${record:attribute('kafkaMessageKey')}"
+      } ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "toAggr",
+        "xPos" : 2750.544073820114,
+        "yPos" : 100.46633338928223,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ "ExpressionEvaluator_15OutputLane15863961789250" ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    } ],
+    "errorStage" : {
+      "instanceName" : "Discard_ErrorStage",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Error Records - Discard",
+        "xPos" : 932.3488833904266,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    },
+    "info" : {
+      "pipelineId" : "2KafkaFbb26a979-9c2f-4ea8-bb32-f3220d4b9606",
+      "title" : "FW_Juniper_20211026",
+      "description" : "",
+      "created" : 1729755952605,
+      "lastModified" : 1729756690950,
+      "creator" : "admin",
+      "lastModifier" : "admin",
+      "lastRev" : "0",
+      "uuid" : "98e5a376-6e54-4eb5-a9e5-d6a4c0ab22e4",
+      "valid" : true,
+      "metadata" : {
+        "labels" : [ "Firewall/Juniper" ]
+      },
+      "name" : "2KafkaFbb26a979-9c2f-4ea8-bb32-f3220d4b9606",
+      "sdcVersion" : "3.16.2",
+      "sdcId" : "47830ba5-8ce3-11ef-a5e4-11fb3283ff83"
+    },
+    "metadata" : {
+      "labels" : [ "Firewall/Juniper" ]
+    },
+    "statsAggregatorStage" : {
+      "instanceName" : "Discard_StatsAggregatorStage",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_devnull_StatsNullDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Stats Aggregator - Discard",
+        "xPos" : 1145.1304473876953,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    },
+    "startEventStages" : [ {
+      "instanceName" : "Discard_StartEventStage",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Start Event - Discard",
+        "xPos" : 280,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    } ],
+    "stopEventStages" : [ {
+      "instanceName" : "Discard_StopEventStage",
+      "library" : "streamsets-datacollector-basic-lib",
+      "stageName" : "com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget",
+      "stageVersion" : "1",
+      "configuration" : [ ],
+      "uiInfo" : {
+        "description" : "",
+        "label" : "Stop Event - Discard",
+        "xPos" : 280,
+        "yPos" : 50,
+        "stageType" : "TARGET"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ ],
+      "eventLanes" : [ ],
+      "services" : [ ]
+    } ],
+    "testOriginStage" : {
+      "instanceName" : "com_streamsets_pipeline_stage_devtest_rawdata_RawDataDSource_TestOriginStage",
+      "library" : "streamsets-datacollector-dev-lib",
+      "stageName" : "com_streamsets_pipeline_stage_devtest_rawdata_RawDataDSource",
+      "stageVersion" : "3",
+      "configuration" : [ {
+        "name" : "rawData",
+        "value" : "{\n  \"f1\": \"abc\",\n  \"f2\": \"xyz\",\n  \"f3\": \"lmn\"\n}"
+      }, {
+        "name" : "stopAfterFirstBatch",
+        "value" : false
+      }, {
+        "name" : "stageOnRecordError",
+        "value" : "TO_ERROR"
+      } ],
+      "uiInfo" : {
+        "stageType" : "SOURCE",
+        "label" : "Test Origin - Dev Raw Data Source"
+      },
+      "inputLanes" : [ ],
+      "outputLanes" : [ "com_streamsets_pipeline_stage_devtest_rawdata_RawDataDSource_TestOriginStageOutputLane1" ],
+      "eventLanes" : [ ],
+      "services" : [ {
+        "service" : "com.streamsets.pipeline.api.service.dataformats.DataFormatParserService",
+        "serviceVersion" : 2,
+        "configuration" : [ {
+          "name" : "displayFormats",
+          "value" : "DELIMITED,JSON,LOG,SDC_JSON,TEXT,XML"
+        }, {
+          "name" : "dataFormat",
+          "value" : "JSON"
+        }, {
+          "name" : "dataFormatConfig.compression",
+          "value" : "NONE"
+        }, {
+          "name" : "dataFormatConfig.filePatternInArchive",
+          "value" : "*"
+        }, {
+          "name" : "dataFormatConfig.charset",
+          "value" : "UTF-8"
+        }, {
+          "name" : "dataFormatConfig.removeCtrlChars",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.textMaxLineLen",
+          "value" : 1024
+        }, {
+          "name" : "dataFormatConfig.useCustomDelimiter",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.customDelimiter",
+          "value" : "\\r\\n"
+        }, {
+          "name" : "dataFormatConfig.includeCustomDelimiterInTheText",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.jsonContent",
+          "value" : "MULTIPLE_OBJECTS"
+        }, {
+          "name" : "dataFormatConfig.jsonMaxObjectLen",
+          "value" : 4096
+        }, {
+          "name" : "dataFormatConfig.csvFileFormat",
+          "value" : "CSV"
+        }, {
+          "name" : "dataFormatConfig.csvHeader",
+          "value" : "NO_HEADER"
+        }, {
+          "name" : "dataFormatConfig.csvAllowExtraColumns",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.csvExtraColumnPrefix",
+          "value" : "_extra_"
+        }, {
+          "name" : "dataFormatConfig.csvMaxObjectLen",
+          "value" : 1024
+        }, {
+          "name" : "dataFormatConfig.csvCustomDelimiter",
+          "value" : "|"
+        }, {
+          "name" : "dataFormatConfig.csvCustomEscape",
+          "value" : "\\"
+        }, {
+          "name" : "dataFormatConfig.csvCustomQuote",
+          "value" : "\""
+        }, {
+          "name" : "dataFormatConfig.csvEnableComments",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.csvCommentMarker",
+          "value" : "#"
+        }, {
+          "name" : "dataFormatConfig.csvIgnoreEmptyLines",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.csvRecordType",
+          "value" : "LIST_MAP"
+        }, {
+          "name" : "dataFormatConfig.csvSkipStartLines",
+          "value" : 0
+        }, {
+          "name" : "dataFormatConfig.parseNull",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.nullConstant",
+          "value" : "\\\\N"
+        }, {
+          "name" : "dataFormatConfig.xmlRecordElement",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.includeFieldXpathAttributes",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.xPathNamespaceContext",
+          "value" : [ ]
+        }, {
+          "name" : "dataFormatConfig.outputFieldAttributes",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.xmlMaxObjectLen",
+          "value" : 4096
+        }, {
+          "name" : "dataFormatConfig.logMode",
+          "value" : "COMMON_LOG_FORMAT"
+        }, {
+          "name" : "dataFormatConfig.logMaxObjectLen",
+          "value" : 1024
+        }, {
+          "name" : "dataFormatConfig.retainOriginalLine",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.customLogFormat",
+          "value" : "%h %l %u %t \"%r\" %>s %b"
+        }, {
+          "name" : "dataFormatConfig.regex",
+          "value" : "^(\\S+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})\\] \"(\\S+) (\\S+) (\\S+)\" (\\d{3}) (\\d+)"
+        }, {
+          "name" : "dataFormatConfig.fieldPathsToGroupName",
+          "value" : [ {
+            "fieldPath" : "/",
+            "group" : 1
+          } ]
+        }, {
+          "name" : "dataFormatConfig.grokPatternDefinition",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.grokPattern",
+          "value" : "%{COMMONAPACHELOG}"
+        }, {
+          "name" : "dataFormatConfig.onParseError",
+          "value" : "ERROR"
+        }, {
+          "name" : "dataFormatConfig.maxStackTraceLines",
+          "value" : 50
+        }, {
+          "name" : "dataFormatConfig.enableLog4jCustomLogFormat",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.log4jCustomLogFormat",
+          "value" : "%r [%t] %-5p %c %x - %m%n"
+        }, {
+          "name" : "dataFormatConfig.avroSchemaSource",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.avroSchema",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.schemaRegistryUrls",
+          "value" : [ ]
+        }, {
+          "name" : "dataFormatConfig.schemaLookupMode",
+          "value" : "SUBJECT"
+        }, {
+          "name" : "dataFormatConfig.subject",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.schemaId",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.protoDescriptorFile",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.messageType",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.isDelimited",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.binaryMaxObjectLen",
+          "value" : 1024
+        }, {
+          "name" : "dataFormatConfig.datagramMode",
+          "value" : "SYSLOG"
+        }, {
+          "name" : "dataFormatConfig.typesDbPath",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.convertTime",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.excludeInterval",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.authFilePath",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.netflowOutputValuesMode",
+          "value" : "RAW_AND_INTERPRETED"
+        }, {
+          "name" : "dataFormatConfig.maxTemplateCacheSize",
+          "value" : -1
+        }, {
+          "name" : "dataFormatConfig.templateCacheTimeoutMs",
+          "value" : -1
+        }, {
+          "name" : "dataFormatConfig.netflowOutputValuesModeDatagram",
+          "value" : "RAW_AND_INTERPRETED"
+        }, {
+          "name" : "dataFormatConfig.maxTemplateCacheSizeDatagram",
+          "value" : -1
+        }, {
+          "name" : "dataFormatConfig.templateCacheTimeoutMsDatagram",
+          "value" : -1
+        }, {
+          "name" : "dataFormatConfig.wholeFileMaxObjectLen",
+          "value" : 8192
+        }, {
+          "name" : "dataFormatConfig.rateLimit",
+          "value" : "-1"
+        }, {
+          "name" : "dataFormatConfig.verifyChecksum",
+          "value" : false
+        }, {
+          "name" : "dataFormatConfig.excelHeader",
+          "value" : null
+        }, {
+          "name" : "dataFormatConfig.preserveRootElement",
+          "value" : false
+        } ]
+      } ]
+    },
+    "valid" : true,
+    "issues" : {
+      "pipelineIssues" : [ ],
+      "stageIssues" : { },
+      "issueCount" : 0
+    },
+    "previewable" : false
+  },
+  "pipelineRules" : {
+    "schemaVersion" : 3,
+    "version" : 2,
+    "metricsRuleDefinitions" : [ {
+      "id" : "badRecordsAlertID",
+      "alertText" : "High incidence of Error Records",
+      "metricId" : "pipeline.batchErrorRecords.counter",
+      "metricType" : "COUNTER",
+      "metricElement" : "COUNTER_COUNT",
+      "condition" : "${value() > 100}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1522224284956,
+      "valid" : true
+    }, {
+      "id" : "stageErrorAlertID",
+      "alertText" : "High incidence of Stage Errors",
+      "metricId" : "pipeline.batchErrorMessages.counter",
+      "metricType" : "COUNTER",
+      "metricElement" : "COUNTER_COUNT",
+      "condition" : "${value() > 100}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1522224284956,
+      "valid" : true
+    }, {
+      "id" : "idleGaugeID",
+      "alertText" : "Pipeline is Idle",
+      "metricId" : "RuntimeStatsGauge.gauge",
+      "metricType" : "GAUGE",
+      "metricElement" : "TIME_OF_LAST_RECEIVED_RECORD",
+      "condition" : "${time:now() - value() > 120000}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1522224284956,
+      "valid" : true
+    }, {
+      "id" : "batchTimeAlertID",
+      "alertText" : "Batch taking more time to process",
+      "metricId" : "RuntimeStatsGauge.gauge",
+      "metricType" : "GAUGE",
+      "metricElement" : "CURRENT_BATCH_AGE",
+      "condition" : "${value() > 200}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1522224284956,
+      "valid" : true
+    }, {
+      "id" : "memoryLimitAlertID",
+      "alertText" : "Memory limit for pipeline exceeded",
+      "metricId" : "pipeline.memoryConsumed.counter",
+      "metricType" : "COUNTER",
+      "metricElement" : "COUNTER_COUNT",
+      "condition" : "${value() > (jvm:maxMemoryMB() * 0.65)}",
+      "sendEmail" : false,
+      "enabled" : false,
+      "timestamp" : 1522224284956,
+      "valid" : true
+    } ],
+    "dataRuleDefinitions" : [ ],
+    "driftRuleDefinitions" : [ ],
+    "uuid" : "f1200115-35e3-475a-be70-90792951a10f",
+    "configuration" : [ {
+      "name" : "emailIDs",
+      "value" : [ ]
+    }, {
+      "name" : "webhookConfigs",
+      "value" : [ ]
+    } ],
+    "ruleIssues" : [ ],
+    "configIssues" : [ ]
+  },
+  "libraryDefinitions" : null
+}
