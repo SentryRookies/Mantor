@@ -1,0 +1,19 @@
+def lib = [
+        'compile': [
+                "org.mybatis:mybatis:3.5.6",
+                'com.zaxxer:HikariCP:3.4.2',
+                'org.postgresql:postgresql:42.6.0',
+                'com.google.code.gson:gson:2.8.8' // Gson 추가
+        ],
+        'provided': [],
+        'runtime': []
+]
+
+dependencies {
+    implementation project(":sumits.fm.core")
+    implementation group: 'org.springframework', name: 'spring-tx', version: '6.0.8'
+    implementation 'org.springframework:spring-context:6.0.8'  // 필요한 버전의 Spring 의존성 추가
+    implementation lib.compile
+    implementation lib.provided
+    implementation lib.runtime
+}

@@ -1,0 +1,9 @@
+elasticsearch:
+  hosts:
+    - "20.249.71.166:9200"
+    - "elasticsearch-data1-cs:9200"
+    - "elasticsearch-data2-cs:9200"
+  socketTimeout: 60000
+  connectionTimeout: 5000
+  maxConnTotal: 500
+  maxConnPerRoute: 100

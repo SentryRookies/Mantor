@@ -1,0 +1,9 @@
+dependencies {
+    implementation project(":sumits.fm.core")
+    implementation 'org.elasticsearch.client:elasticsearch-rest-client:8.14.3'
+    implementation 'org.yaml:snakeyaml:2.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.6'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}

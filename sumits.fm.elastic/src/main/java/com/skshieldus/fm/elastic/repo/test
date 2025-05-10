@@ -1,0 +1,116 @@
+    @Override
+    public JsonNode selectCctvEventList(String bldId, String eventReason, String eventName, String searchText, String searchField, String startDate, String endDate, int pageSize, int pageIndex, int searchAfterIndex, List<List<String>> sortValue) throws Exception {
+        //조회 인덱스 생성
+        String cctvIndex = ElasticUtil.generateIndexNames("cctv_event_", startDate, endDate);
+
+        LocalDateTime startDateTime = LocalDateTime.parse(startDate + "T00:00:00");
+        LocalDateTime endDateTime = LocalDateTime.parse(endDate + "T23:59:59");
+
+        LocalDateTime now = LocalDateTime.now();
+        if (endDateTime.isAfter(now)) {
+            endDateTime = now;
+        }
+
+        long startDateMilli = startDateTime.atZone(ZoneId.of("Asia/Seoul")).toInstant().toEpochMilli();
+        long endDateMilli = endDateTime.atZone(ZoneId.of("Asia/Seoul")).toInstant().toEpochMilli();
+
+        // "query" 쿼리 맵 생성
+        Map<String, Object> queryMap = new HashMap<>();
+
+        // "wildcard" 쿼리 맵 생성
+        Map<String, Object> wildCardMap = new HashMap<>();
+
+        wildCardMap.put("value", "*" + searchText + "*");
+        wildCardMap.put("case_insensitive", true); //lowerCase로 조회
+
+        ElasticQuery filterQuery1 = null;
+        ElasticQuery term1 = null;
+        ElasticQuery term2 = null;
+
+        if (eventReason != null && !eventReason.isEmpty()) {
+            // eventReason 값이 존재하는 경우
+            filterQuery1 = new ElasticQuery("term", "eventReason", eventReason);
+            if(eventReason.equals("status")) {
+                term1 = new ElasticQuery("term", "eventReason", "receive");
+                term2 = new ElasticQuery("term", "eventCategory", "roi_event");
+            }
+        } else {
+            // eventReason 값이 없으면
+            filterQuery1 = new ElasticQuery("terms", "eventReason", List.of("healthcheck_1", "receive_emergency", "status"));
+            term1 = new ElasticQuery("term", "eventReason", "receive");
+            term2 = new ElasticQuery("term", "eventCategory", "roi_event");
+        }
+        //ElasticQuery filterQuery4 = new ElasticQuery("term", "eventName", eventName);
+
+        ElasticQuery filterQuery2 = new ElasticQuery("wildcard", searchField, wildCardMap);
+        ElasticQuery filterQuery3 = new ElasticQuery("term", "buildingIdNew", bldId);
+        SortQuery sortQuery1 = new SortQuery("collectorReceiptTime", "desc");
+        RangeQuery rangeQuery = new RangeQuery("collectorReceiptTime", startDateMilli, endDateMilli);
+
+        BoolQuery boolQuery;
+        if(searchText != null && !searchText.isEmpty()) {
+            boolQuery = BoolQuery.createWithMatchQueries(
+                    Collections.emptyList(), // 빈 리스트(must)
+                    Collections.emptyList(), // 빈 리스트(should)
+                    Collections.emptyList(), // 빈 리스트(must_not)
+                    List.of(filterQuery1, filterQuery2, filterQuery3, rangeQuery)  // filter
+            );
+        } else {
+            boolQuery = BoolQuery.createWithMatchQueries(
+                    Collections.emptyList(), // 빈 리스트(must)
+                    Collections.emptyList(), // 빈 리스트(should)
+                    Collections.emptyList(), // 빈 리스트(must_not)
+                    List.of(filterQuery1, filterQuery3, rangeQuery)  // filter
+            );
+        }
+
+        //queryMap.put("from", PageStartIndex);
+        queryMap.put("size", pageSize);
+        queryMap.put("track_total_hits", true); // 총 갯수 조회
+        queryMap.put("sort", sortQuery1.toMap());
+
+        if(term1!=null && term2!=null) {
+            BoolQuery boolQuery2 = BoolQuery.createWithMatchQueries(
+                    List.of(term1, term2), // 빈 리스트(must)
+                    Collections.emptyList(), // 빈 리스트(should)
+                    Collections.emptyList(), // 빈 리스트(must_not)
+                    List.of(filterQuery3, rangeQuery)
+            );
+            Map<String, Object> boolQuery3 = new HashMap<>();
+            boolQuery3.put("should", List.of(Map.of("bool", boolQuery), Map.of("bool", boolQuery2)));
+
+            queryMap.put("query", Map.of("bool", boolQuery3));
+        } else {
+            queryMap.put("query", Map.of("bool", boolQuery));
+        }
+
+        AggregationQuery aggsQuery = AggregationQuery.builder()
+                .name("cctv_status_count")
+                .aggregation(
+                        TermsAggregation.builder()
+                                .field("eventName")
+                                .build()
+                )
+                .build();
+
+        queryMap.putAll(aggsQuery.toMap());
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String esBoolQuery = objectMapper.writeValueAsString(queryMap);
+
+        int pageDifference = pageIndex - searchAfterIndex;
+        if(pageIndex<=1){
+            //첫 페이지 요청
+            return ElasticExecutor.searchAfterPage(this.client, cctvIndex, HttpMethodEnum.GET, objectMapper.writeValueAsString(queryMap), 1);
+        }
+        else if(pageDifference > 0){
+            //다음 페이지 요청
+            int searchAfterCount = pageIndex - searchAfterIndex;
+            return ElasticExecutor.searchAfterPage(this.client, cctvIndex, HttpMethodEnum.GET, objectMapper.writeValueAsString(queryMap), searchAfterCount, sortValue);
+        }
+        else {
+            //이전 페이지 요청 or 같은 페이지 요청
+            int searchBeforeCount = searchAfterIndex - pageIndex;
+            return ElasticExecutor.searchBeforePage(this.client, cctvIndex, HttpMethodEnum.GET, objectMapper.writeValueAsString(queryMap), searchBeforeCount, sortValue);
+        }
+    }
