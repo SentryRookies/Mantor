@@ -1,3 +1,5 @@
 rootProject.name = 'Mantor'
 include 'demo1'
 include 'JwtAuth'
+include 'sumits.jdbc.postgre'
+include 'sumits.fm.elastic'
